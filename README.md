@@ -81,6 +81,8 @@ ROW(
 
 # MOM、YTD
 
+## 去年同期
+
 ```
 去年同期=CALCULATE([销售金额],SAMEPERIODLASTYEAR('日期表'[Date]))
 ```
@@ -89,17 +91,19 @@ ROW(
 去年同期=CALCULATE([销售金额],DATEADD('日期表'[Date],-1,YEAR))
 ```
 
+## 月环比
+
 ```
 月环比=CALCULATE([销售金额],DATEADD('日期表'[Date],-1,MONTH))
 ```
 
-YTD年度累计
+## YTD年度累计
 
 ```
 YTD = TOTALYTD([销售金额],'日期表'[Date])
 ```
 
-YTD计算逻辑
+## YTD计算逻辑
 
 ```
 YTD = 
@@ -112,10 +116,89 @@ ALL('日期表'[Date]),
 )
 ```
 
-从指定日期开始年度累计，举例为从4月开始累计
+## 从指定日期开始年度累计，举例为从4月开始累计
 
 ```
 FYTD = TOTALYTD([销售金额],'日期表'[Date],"3-31")
+```
+
+## WTD周累计至今
+
+就是周数相同的，小于等于当天的这几日的数据
+
+```
+本周至今WTD =
+VAR curyearweek=SELECTEDVALUE('日期表'[年度周数])
+RETURN
+CALCULATE(
+[销售金额],
+FILTER(
+ALL('日期表'),
+'日期表'[年度周数]=curyearweek
+&&'日期表'[日期]<=MAX('日期表'[日期])
+)
+)
+```
+
+## 上周同期
+
+用于天维度的上周同比，用周维度会有问题
+
+```
+上周同期 销售额 =
+CALCULATE(
+[销售金额],
+DATEADD('日期表'[日期],-7,DAY)
+)
+```
+
+
+
+## 周环比
+
+### 第一种
+
+第一周，会出现一些问题，主要是由于第一周没有上期数据，并且第一周的天数很可能不完整
+
+实际上就是本周数据和上周数据的对比，只要计算出上周累计的数据，周环比也就可以简单的计算出来了。
+
+```
+上周累计 =
+VAR curyear= SELECTEDVALUE('日期表'[年度])
+VAR curweeknum=SELECTEDVALUE('日期表'[周数])
+RETURN
+CALCULATE(
+[销售金额],
+FILTER(
+ALL('日期表'),
+'日期表'[年度]=curyear
+&&'日期表'[周数]=curweeknum-1
+)
+)
+
+
+周环比 = DIVIDE([销售金额],[上周累计])-1
+```
+
+### 第二种
+
+把整个日期看成是一个整体，即无论多少年，都是不断的周累加，同样第一周会有点问题，但跨年就比较简单了
+
+[参考这个](https://www.zhihu.com/question/476790194/answer/2035649720 )
+
+
+
+```
+ADDCOLUMNS(
+        date_table_base , 
+        "WeekNumerInYear" , WEEKNUM( [Date] , 2 ) ,//年周，周一为第一天
+        "WeekNumberGlobal" , 
+        	DATEDIFF( 
+				MINX( FILTER( date_table_base , [DayNumberInWeek] = 1 ) , [Date] ) , 
+				[Date] - 1 , 
+				WEEK 
+			)
+    )
 ```
 
 
@@ -199,7 +282,7 @@ RETURN UserResult
 
 # 中国地图#形状地图
 
-下载地址
+[下载地址](https://github.com/zhangjinmin/zhangjinmin.github.io/blob/main/%E4%B8%AD%E5%9B%BD%E5%9C%B0%E5%9B%BE%E5%BD%A2%E7%8A%B6.json)
 
 
 
