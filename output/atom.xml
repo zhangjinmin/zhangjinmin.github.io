@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://localhost:4000</id>
+    <title>Gridea</title>
+    <updated>2022-03-12T15:20:44.924Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="http://localhost:4000"/>
+    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>http://localhost:4000/images/avatar.png</logo>
+    <icon>http://localhost:4000/favicon.ico</icon>
+    <rights>All rights reserved 2022, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[DAX新建表]]></title>
+        <id>http://localhost:4000/post/dax-xin-jian-biao/</id>
+        <link href="http://localhost:4000/post/dax-xin-jian-biao/">
+        </link>
+        <updated>2022-03-12T15:13:06.000Z</updated>
+        <content type="html"><![CDATA[<p>Dax.新建表UnitTable =<br>
+SELECTCOLUMNS(    //选择某张表，按上表头</p>
+<p>//以下是新建表，但没有表头<br>
+{<br>
+(&quot;K&quot;,1000),<br>
+(&quot;w&quot;,10000),<br>
+(&quot;M&quot;,1000000)<br>
+},<br>
+//新建表</p>
+<p>//按上表头<br>
+&quot;UnitName&quot;,[Value1],<br>
+&quot;UnitValue&quot;,[Value2]</p>
+<p>)*</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[hello jekyll!]]></title>
+        <id>http://localhost:4000/post/2022-03-03-PBI-代码/</id>
+        <link href="http://localhost:4000/post/2022-03-03-PBI-代码/">
+        </link>
+        <updated>2015-02-10T07:14:54.000Z</updated>
+        <content type="html"><![CDATA[<p>PowerBI的一些功能的备注，全靠搜索，有空加点关键字上去</p>
+<h1 id="dax新建表">DAX新建表</h1>
+<pre><code>Dax.新建表UnitTable = 
+SELECTCOLUMNS(    //选择某张表，按上表头
+    
+//以下是新建表，但没有表头
+    {
+        (&quot;K&quot;,1000),
+        (&quot;w&quot;,10000),
+        (&quot;M&quot;,1000000)
+    },
+//新建表
+
+//按上表头
+    &quot;UnitName&quot;,[Value1],
+    &quot;UnitValue&quot;,[Value2]
+
+)
+</code></pre>
+<h1 id="日期表">日期表</h1>
+<p>以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好</p>
+<h2 id="第一种直接指定日期">第一种，直接指定日期</h2>
+<pre><code>日期表 = ADDCOLUMNS (
+CALENDAR (DATE(2018,1,1), DATE(2019,12,31)),
+&quot;年度&quot;, YEAR ( [Date] ),
+&quot;月份&quot;, FORMAT ( [Date], &quot;MM&quot; ),
+&quot;周&quot;,WEEKNUM([Date],2),
+&quot;年月&quot;, FORMAT ( [Date], &quot;YYYY/MM&quot; ),
+&quot;星期&quot;, WEEKDAY ( [Date],2 ) &amp; &quot;-&quot; &amp; FORMAT ( [Date], &quot;dddd&quot; ),
+&quot;季度&quot;, &quot;Q&quot; &amp; FORMAT ( [Date], &quot;Q&quot; ),
+&quot;年份季度&quot;, FORMAT ( [Date], &quot;YYYY&quot; ) &amp; &quot;/Q&quot; &amp; FORMAT ( [Date], &quot;Q&quot; ))
+</code></pre>
+<h2 id="第二种用事实表中的日期自动化程度高">第二种，用事实表中的日期，自动化程度高</h2>
+<pre><code>日期表 =
+GENERATE(
+CALENDAR(
+    MIN('事实表'[日期]),//注意：这里需要替换成你自己的数据
+    MAX('事实表'[日期])//注意：这里需要替换成你自己的数据
+),
+VAR DA=[Date]
+VAR YEAR=YEAR(DA)
+VAR QUARTER=&quot;季度&quot;&amp;FORMAT(DA,&quot;Q&quot;)
+VAR MONTE=FORMAT(DA,&quot;MM&quot;)&amp;&quot;月&quot;
+VAR DAY=DAY(DA)
+VAR WEEKID=WEEKDAY(DA,2)
+RETURN
+ROW(
+    &quot;年度&quot;,YEAR,
+    &quot;季度&quot;,QUARTER,
+    &quot;月份&quot;,MONTE,
+    &quot;日&quot;,DAY,
+    &quot;年度季度&quot;,YEAR&amp;QUARTER,
+    &quot;年度月份&quot;,YEAR&amp;MONTE,
+    &quot;星期&quot;,WEEKID
+)
+)
+</code></pre>
+<h1 id="mom-ytd">MOM、YTD</h1>
+<h2 id="去年同期">去年同期</h2>
+<pre><code>去年同期=CALCULATE([销售金额],SAMEPERIODLASTYEAR('日期表'[Date]))
+</code></pre>
+<pre><code>去年同期=CALCULATE([销售金额],DATEADD('日期表'[Date],-1,YEAR))
+</code></pre>
+<h2 id="月环比">月环比</h2>
+<pre><code>月环比=CALCULATE([销售金额],DATEADD('日期表'[Date],-1,MONTH))
+</code></pre>
+<h2 id="ytd年度累计">YTD年度累计</h2>
+<pre><code>YTD = TOTALYTD([销售金额],'日期表'[Date])
+</code></pre>
+<h2 id="ytd计算逻辑">YTD计算逻辑</h2>
+<pre><code>YTD = 
+CALCULATE(
+[销售金额],
+FILTER(
+ALL('日期表'[Date]),
+'日期表'[Date]&lt;=MAX('日期表'[Date]) &amp;&amp; YEAR('日期表'[Date])=YEAR(MAX('日期表'[Date]))
+)
+)
+</code></pre>
+<h2 id="从指定日期开始年度累计举例为从4月开始累计">从指定日期开始年度累计，举例为从4月开始累计</h2>
+<pre><code>FYTD = TOTALYTD([销售金额],'日期表'[Date],&quot;3-31&quot;)
+</code></pre>
+<h2 id="wtd周累计至今">WTD周累计至今</h2>
+<p>就是周数相同的，小于等于当天的这几日的数据</p>
+<pre><code>本周至今WTD =
+VAR curyearweek=SELECTEDVALUE('日期表'[年度周数])
+RETURN
+CALCULATE(
+[销售金额],
+FILTER(
+ALL('日期表'),
+'日期表'[年度周数]=curyearweek
+&amp;&amp;'日期表'[日期]&lt;=MAX('日期表'[日期])
+)
+)
+</code></pre>
+<h2 id="上周同期">上周同期</h2>
+<p>用于天维度的上周同比，用周维度会有问题</p>
+<pre><code>上周同期 销售额 =
+CALCULATE(
+[销售金额],
+DATEADD('日期表'[日期],-7,DAY)
+)
+</code></pre>
+<h2 id="周环比">周环比</h2>
+<h3 id="第一种">第一种</h3>
+<p>第一周，会出现一些问题，主要是由于第一周没有上期数据，并且第一周的天数很可能不完整</p>
+<p>实际上就是本周数据和上周数据的对比，只要计算出上周累计的数据，周环比也就可以简单的计算出来了。</p>
+<pre><code>上周累计 =
+VAR curyear= SELECTEDVALUE('日期表'[年度])
+VAR curweeknum=SELECTEDVALUE('日期表'[周数])
+RETURN
+CALCULATE(
+[销售金额],
+FILTER(
+ALL('日期表'),
+'日期表'[年度]=curyear
+&amp;&amp;'日期表'[周数]=curweeknum-1
+)
+)
+
+
+周环比 = DIVIDE([销售金额],[上周累计])-1
+</code></pre>
+<h3 id="第二种">第二种</h3>
+<p>把整个日期看成是一个整体，即无论多少年，都是不断的周累加，同样第一周会有点问题，但跨年就比较简单了</p>
+<p><a href="https://www.zhihu.com/question/476790194/answer/2035649720">参考这个</a></p>
+<pre><code>ADDCOLUMNS(
+        date_table_base , 
+        &quot;WeekNumerInYear&quot; , WEEKNUM( [Date] , 2 ) ,//年周，周一为第一天
+        &quot;WeekNumberGlobal&quot; , 
+        	DATEDIFF( 
+				MINX( FILTER( date_table_base , [DayNumberInWeek] = 1 ) , [Date] ) , 
+				[Date] - 1 , 
+				WEEK 
+			)
+    )
+</code></pre>
+<h1 id="本地图像的使用">本地图像的使用</h1>
+<ol>
+<li>
+<p>图像先导入数据源</p>
+</li>
+<li>
+<p>直接导入并编辑</p>
+</li>
+<li>
+<p>保留Content列</p>
+</li>
+<li>
+<p>添加自定义列</p>
+</li>
+<li>
+<p>输入公式：&quot;data:image/jpeg;base64,&quot;&amp;Binary.ToText([Content])</p>
+</li>
+</ol>
+<p>该列就成为了图像URL了，到时候直接当图片用就可以了</p>
+<p>仅适用于小图像，一般都是几十KB这样子，太大的会被裁剪，毕竟不用加载网络图片了</p>
+<h1 id="评分加相应数量的星星">评分加相应数量的星星</h1>
+<p>使用Emoji图像</p>
+<pre><code>好评 = REPT(&quot;⭐&quot;,AVERAGE('门店评分'[评分]))
+</code></pre>
+<p>使用uincode代码作为图像</p>
+<pre><code>好评 = REPT(UNICHAR(9733),AVERAGE('门店评分'[评分]))
+</code></pre>
+<p>这个是模仿最高分5分，得分四分就是4颗实心星星，1颗空心星星</p>
+<pre><code>好评 = REPT(UNICHAR(9733),AVERAGE('门店评分'[评分]))&amp;REPT(UNICHAR(9734),5-AVERAGE('门店评分'[评分]))
+</code></pre>
+<h1 id="switch函数-指标更换">SWITCH函数、指标更换</h1>
+<h2 id="第一种硬来麻烦是麻烦但清晰容易改">第一种，硬来，麻烦是麻烦，但清晰容易改</h2>
+<pre><code>同期 = 
+SWITCH(TRUE(),
+SELECTEDVALUE('指标'[项目])=&quot;销售额&quot;,[销售额-同期],
+SELECTEDVALUE('指标'[项目])=&quot;销售量&quot;,[销售量-同期],
+SELECTEDVALUE('指标'[项目])=&quot;毛利额&quot;,[毛利额-同期],
+SELECTEDVALUE('指标'[项目])=&quot;来客数&quot;,[来客数-同期],
+SELECTEDVALUE('指标'[项目])=&quot;毛利率&quot;,DIVIDE([毛利额-同期],[销售额-同期]),
+SELECTEDVALUE('指标'[项目])=&quot;客单价&quot;,DIVIDE([销售额-同期],[来客数-同期]),
+SELECTEDVALUE('指标'[项目])=&quot;客单量&quot;,DIVIDE([销售额-同期],[销售量-同期]),
+[销售额-同期])
+</code></pre>
+<h2 id="换个思路用参数也可以参考这个其实更方便">换个思路，用参数，也可以参考，这个其实更方便</h2>
+<pre><code>同期 =
+
+VAR UserCode = SELECTEDVALUE('指标'[项目])
+
+VAR UserResult= 
+	SWITCH(  TRUE() ,
+	UserCode = &quot;Sales&quot; , [KPI.订单销售额]，
+	UserCode = &quot;Volume&quot; , [KPI.销售数量]，
+	UserCode = &quot;Profit%&quot; , [KPI.利润率]，
+	BLANK()
+	）
+RETURN UserResult
+</code></pre>
+<h1 id="中国地图形状地图">中国地图#形状地图</h1>
+<p><a href="https://github.com/zhangjinmin/zhangjinmin.github.io/blob/main/%E4%B8%AD%E5%9B%BD%E5%9C%B0%E5%9B%BE%E5%BD%A2%E7%8A%B6.json">下载地址</a></p>
+]]></content>
+    </entry>
+</feed>
