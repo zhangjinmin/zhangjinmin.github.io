@@ -1,12 +1,13 @@
 {
   "config": {
+    "branch": "main",
+    "cname": "zhangjinmin.github.io",
+    "domain": "https://zhangjinmin.github.io",
+    "email": "damocles@sina.com",
     "platform": "github",
-    "domain": "",
-    "repository": "",
-    "branch": "",
-    "username": "",
-    "email": "",
-    "token": ""
+    "repository": "https://github.com/zhangjinmin/zhangjinmin.github.io",
+    "token": "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",
+    "username": "zhangjinmin"
   },
   "comment": {
     "commentPlatform": "gitalk",
