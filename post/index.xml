@@ -7,19 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Tue, 15 Mar 2022 01:22:56 +0800</lastBuildDate><atom:link href="https://zhangjinmin.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>测试</title>
-      <link>https://zhangjinmin.github.io/post/ceshi/</link>
-      <pubDate>Tue, 15 Mar 2022 01:22:56 +0800</pubDate>
-      
-      <guid>https://zhangjinmin.github.io/post/ceshi/</guid>
-      <description>PowerBI的一些功能的备注，全靠搜索，有空加点关键字上去
-[TOC]
-DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上表头 //以下是新建表，但没有表头 { (&amp;#34;K&amp;#34;,1000), (&amp;#34;w&amp;#34;,10000), (&amp;#34;M&amp;#34;,1000000) }, //新建表 //按上表头 &amp;#34;UnitName&amp;#34;,[Value1], &amp;#34;UnitValue&amp;#34;,[Value2] ) 日期表 以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好
-第一种，直接指定日期 日期表 = ADDCOLUMNS ( CALENDAR (DATE(2018,1,1), DATE(2019,12,31)), &amp;#34;年度&amp;#34;, YEAR ( [Date] ), &amp;#34;月份&amp;#34;, FORMAT ( [Date], &amp;#34;MM&amp;#34; ), &amp;#34;周&amp;#34;,WEEKNUM([Date],2), &amp;#34;年月&amp;#34;, FORMAT ( [Date], &amp;#34;YYYY/MM&amp;#34; ), &amp;#34;星期&amp;#34;, WEEKDAY ( [Date],2 ) &amp;amp; &amp;#34;-&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;dddd&amp;#34; ), &amp;#34;季度&amp;#34;, &amp;#34;Q&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;Q&amp;#34; ), &amp;#34;年份季度&amp;#34;, FORMAT ( [Date], &amp;#34;YYYY&amp;#34; ) &amp;amp; &amp;#34;/Q&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;Q&amp;#34; )) 第二种，用事实表中的日期，自动化程度高 日期表 = GENERATE( CALENDAR( MIN(&amp;#39;事实表&amp;#39;[日期]),//注意：这里需要替换成你自己的数据 MAX(&amp;#39;事实表&amp;#39;[日期])//注意：这里需要替换成你自己的数据 ), VAR DA=[Date] VAR YEAR=YEAR(DA) VAR QUARTER=&amp;#34;季度&amp;#34;&amp;amp;FORMAT(DA,&amp;#34;Q&amp;#34;) VAR MONTE=FORMAT(DA,&amp;#34;MM&amp;#34;)&amp;amp;&amp;#34;月&amp;#34; VAR DAY=DAY(DA) VAR WEEKID=WEEKDAY(DA,2) RETURN ROW( &amp;#34;年度&amp;#34;,YEAR, &amp;#34;季度&amp;#34;,QUARTER, &amp;#34;月份&amp;#34;,MONTE, &amp;#34;日&amp;#34;,DAY, &amp;#34;年度季度&amp;#34;,YEAR&amp;amp;QUARTER, &amp;#34;年度月份&amp;#34;,YEAR&amp;amp;MONTE, &amp;#34;星期&amp;#34;,WEEKID ) ) MOM、YTD 去年同期 去年同期=CALCULATE([销售金额],SAMEPERIODLASTYEAR(&amp;#39;日期表&amp;#39;[Date])) 去年同期=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,YEAR)) 月环比 月环比=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,MONTH)) YTD年度累计 YTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date]) YTD计算逻辑 YTD = CALCULATE( [销售金额], FILTER( ALL(&amp;#39;日期表&amp;#39;[Date]), &amp;#39;日期表&amp;#39;[Date]&amp;lt;=MAX(&amp;#39;日期表&amp;#39;[Date]) &amp;amp;&amp;amp; YEAR(&amp;#39;日期表&amp;#39;[Date])=YEAR(MAX(&amp;#39;日期表&amp;#39;[Date])) ) ) 从指定日期开始年度累计，举例为从4月开始累计 FYTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date],&amp;#34;3-31&amp;#34;) WTD周累计至今 就是周数相同的，小于等于当天的这几日的数据</description>
-    </item>
-    
+    <lastBuildDate>Fri, 08 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangjinmin.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Math Typesetting</title>
       <link>https://zhangjinmin.github.io/post/math-typesetting/</link>
@@ -36,6 +24,19 @@ DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上�
       
       <guid>https://zhangjinmin.github.io/post/emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zhangjinmin.github.io/post/ceshi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhangjinmin.github.io/post/ceshi/</guid>
+      <description>author = &amp;ldquo;Jim&amp;rdquo; title = &amp;ldquo;测试&amp;rdquo; date = &amp;ldquo;2022-03-15&amp;rdquo; description = &amp;ldquo;用来测试&amp;rdquo; tags = [ &amp;ldquo;测试用&amp;rdquo;, &amp;ldquo;DAX&amp;rdquo;, &amp;ldquo;PowerBI&amp;rdquo;, ] categories = [ &amp;ldquo;themes&amp;rdquo;, &amp;ldquo;syntax&amp;rdquo;, ]
+PowerBI的一些功能的备注，全靠搜索，有空加点关键字上去
+[TOC]
+DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上表头 //以下是新建表，但没有表头 { (&amp;#34;K&amp;#34;,1000), (&amp;#34;w&amp;#34;,10000), (&amp;#34;M&amp;#34;,1000000) }, //新建表 //按上表头 &amp;#34;UnitName&amp;#34;,[Value1], &amp;#34;UnitValue&amp;#34;,[Value2] ) 日期表 以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好
+第一种，直接指定日期 日期表 = ADDCOLUMNS ( CALENDAR (DATE(2018,1,1), DATE(2019,12,31)), &amp;#34;年度&amp;#34;, YEAR ( [Date] ), &amp;#34;月份&amp;#34;, FORMAT ( [Date], &amp;#34;MM&amp;#34; ), &amp;#34;周&amp;#34;,WEEKNUM([Date],2), &amp;#34;年月&amp;#34;, FORMAT ( [Date], &amp;#34;YYYY/MM&amp;#34; ), &amp;#34;星期&amp;#34;, WEEKDAY ( [Date],2 ) &amp;amp; &amp;#34;-&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;dddd&amp;#34; ), &amp;#34;季度&amp;#34;, &amp;#34;Q&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;Q&amp;#34; ), &amp;#34;年份季度&amp;#34;, FORMAT ( [Date], &amp;#34;YYYY&amp;#34; ) &amp;amp; &amp;#34;/Q&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;Q&amp;#34; )) 第二种，用事实表中的日期，自动化程度高 日期表 = GENERATE( CALENDAR( MIN(&amp;#39;事实表&amp;#39;[日期]),//注意：这里需要替换成你自己的数据 MAX(&amp;#39;事实表&amp;#39;[日期])//注意：这里需要替换成你自己的数据 ), VAR DA=[Date] VAR YEAR=YEAR(DA) VAR QUARTER=&amp;#34;季度&amp;#34;&amp;amp;FORMAT(DA,&amp;#34;Q&amp;#34;) VAR MONTE=FORMAT(DA,&amp;#34;MM&amp;#34;)&amp;amp;&amp;#34;月&amp;#34; VAR DAY=DAY(DA) VAR WEEKID=WEEKDAY(DA,2) RETURN ROW( &amp;#34;年度&amp;#34;,YEAR, &amp;#34;季度&amp;#34;,QUARTER, &amp;#34;月份&amp;#34;,MONTE, &amp;#34;日&amp;#34;,DAY, &amp;#34;年度季度&amp;#34;,YEAR&amp;amp;QUARTER, &amp;#34;年度月份&amp;#34;,YEAR&amp;amp;MONTE, &amp;#34;星期&amp;#34;,WEEKID ) ) MOM、YTD 去年同期 去年同期=CALCULATE([销售金额],SAMEPERIODLASTYEAR(&amp;#39;日期表&amp;#39;[Date])) 去年同期=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,YEAR)) 月环比 月环比=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,MONTH)) YTD年度累计 YTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date]) YTD计算逻辑 YTD = CALCULATE( [销售金额], FILTER( ALL(&amp;#39;日期表&amp;#39;[Date]), &amp;#39;日期表&amp;#39;[Date]&amp;lt;=MAX(&amp;#39;日期表&amp;#39;[Date]) &amp;amp;&amp;amp; YEAR(&amp;#39;日期表&amp;#39;[Date])=YEAR(MAX(&amp;#39;日期表&amp;#39;[Date])) ) ) 从指定日期开始年度累计，举例为从4月开始累计 FYTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date],&amp;#34;3-31&amp;#34;) WTD周累计至今 就是周数相同的，小于等于当天的这几日的数据</description>
     </item>
     
   </channel>
