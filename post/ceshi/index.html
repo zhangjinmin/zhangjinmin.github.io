@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-<title>Ceshi</title>
+<title>测试</title>
 
 
 
@@ -16,7 +16,7 @@
 
 
 
-<meta property="og:title" content="Ceshi" />
+<meta property="og:title" content="测试" />
 <meta property="og:description" content="PowerBI的一些功能的备注，全靠搜索，有空加点关键字上去
 [TOC]
 DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上表头 //以下是新建表，但没有表头 { (&#34;K&#34;,1000), (&#34;w&#34;,10000), (&#34;M&#34;,1000000) }, //新建表 //按上表头 &#34;UnitName&#34;,[Value1], &#34;UnitValue&#34;,[Value2] ) 日期表 以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好
@@ -29,14 +29,6 @@ DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上�
 
 
 
-
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ceshi"/>
-<meta name="twitter:description" content="PowerBI的一些功能的备注，全靠搜索，有空加点关键字上去
-[TOC]
-DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上表头 //以下是新建表，但没有表头 { (&#34;K&#34;,1000), (&#34;w&#34;,10000), (&#34;M&#34;,1000000) }, //新建表 //按上表头 &#34;UnitName&#34;,[Value1], &#34;UnitValue&#34;,[Value2] ) 日期表 以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好
-第一种，直接指定日期 日期表 = ADDCOLUMNS ( CALENDAR (DATE(2018,1,1), DATE(2019,12,31)), &#34;年度&#34;, YEAR ( [Date] ), &#34;月份&#34;, FORMAT ( [Date], &#34;MM&#34; ), &#34;周&#34;,WEEKNUM([Date],2), &#34;年月&#34;, FORMAT ( [Date], &#34;YYYY/MM&#34; ), &#34;星期&#34;, WEEKDAY ( [Date],2 ) &amp; &#34;-&#34; &amp; FORMAT ( [Date], &#34;dddd&#34; ), &#34;季度&#34;, &#34;Q&#34; &amp; FORMAT ( [Date], &#34;Q&#34; ), &#34;年份季度&#34;, FORMAT ( [Date], &#34;YYYY&#34; ) &amp; &#34;/Q&#34; &amp; FORMAT ( [Date], &#34;Q&#34; )) 第二种，用事实表中的日期，自动化程度高 日期表 = GENERATE( CALENDAR( MIN(&#39;事实表&#39;[日期]),//注意：这里需要替换成你自己的数据 MAX(&#39;事实表&#39;[日期])//注意：这里需要替换成你自己的数据 ), VAR DA=[Date] VAR YEAR=YEAR(DA) VAR QUARTER=&#34;季度&#34;&amp;FORMAT(DA,&#34;Q&#34;) VAR MONTE=FORMAT(DA,&#34;MM&#34;)&amp;&#34;月&#34; VAR DAY=DAY(DA) VAR WEEKID=WEEKDAY(DA,2) RETURN ROW( &#34;年度&#34;,YEAR, &#34;季度&#34;,QUARTER, &#34;月份&#34;,MONTE, &#34;日&#34;,DAY, &#34;年度季度&#34;,YEAR&amp;QUARTER, &#34;年度月份&#34;,YEAR&amp;MONTE, &#34;星期&#34;,WEEKID ) ) MOM、YTD 去年同期 去年同期=CALCULATE([销售金额],SAMEPERIODLASTYEAR(&#39;日期表&#39;[Date])) 去年同期=CALCULATE([销售金额],DATEADD(&#39;日期表&#39;[Date],-1,YEAR)) 月环比 月环比=CALCULATE([销售金额],DATEADD(&#39;日期表&#39;[Date],-1,MONTH)) YTD年度累计 YTD = TOTALYTD([销售金额],&#39;日期表&#39;[Date]) YTD计算逻辑 YTD = CALCULATE( [销售金额], FILTER( ALL(&#39;日期表&#39;[Date]), &#39;日期表&#39;[Date]&lt;=MAX(&#39;日期表&#39;[Date]) &amp;&amp; YEAR(&#39;日期表&#39;[Date])=YEAR(MAX(&#39;日期表&#39;[Date])) ) ) 从指定日期开始年度累计，举例为从4月开始累计 FYTD = TOTALYTD([销售金额],&#39;日期表&#39;[Date],&#34;3-31&#34;) WTD周累计至今 就是周数相同的，小于等于当天的这几日的数据"/>
 
 
 
@@ -97,7 +89,7 @@ DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上�
         </div>
         
         <div class="nav-subtitle">
-            Themed by Diary.
+            随遇而安，岁月静好
         </div>
         
     </a>
@@ -122,6 +114,16 @@ DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上�
             
             <a class="a-block nav-link-item false" href="/tags">
                 标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/about">
+                关于我
             </a>
             
         
@@ -623,6 +625,16 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                 </a>
                 
             
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/about">
+                    关于我
+                </a>
+                
+            
             
             <div class="toc">
 
@@ -1089,7 +1101,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
     <a href="https://zhangjinmin.github.io/">
         <div class="single-column-header-title">ZhangJM</div>
         
-        <div class="single-column-header-subtitle">Themed by Diary.</div>
+        <div class="single-column-header-subtitle">随遇而安，岁月静好</div>
         
 
     </a>
@@ -1108,7 +1120,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                 
             >
                 <div class="post-title">
-                    Ceshi
+                    测试
                     
                     <div class="post-meta">
                         
@@ -1327,8 +1339,8 @@ RETURN UserResult
                 
                 
                 
-                <a class="older-posts" href="https://zhangjinmin.github.io/post/first/">
-			上回<br>First
+                <a class="older-posts" href="https://zhangjinmin.github.io/archives/">
+			上回<br>
                 </a>
                 
             </nav>

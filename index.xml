@@ -1,0 +1,293 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ZhangJM</title>
+    <link>https://zhangjinmin.github.io/</link>
+    <description>Recent content on ZhangJM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Tue, 15 Mar 2022 01:22:56 +0800</lastBuildDate>
+    
+        <atom:link href="https://zhangjinmin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>测试</title>
+        <link>https://zhangjinmin.github.io/post/ceshi/</link>
+        <pubDate>Tue, 15 Mar 2022 01:22:56 +0800</pubDate>
+        
+        <guid>https://zhangjinmin.github.io/post/ceshi/</guid>
+        <description>ZhangJM https://zhangjinmin.github.io/post/ceshi/ -&lt;p&gt;PowerBI的一些功能的备注，全靠搜索，有空加点关键字上去&lt;/p&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&#34;dax新建表&#34;&gt;DAX新建表&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Dax.新建表UnitTable = 
+SELECTCOLUMNS(    //选择某张表，按上表头
+    
+//以下是新建表，但没有表头
+    {
+        (&amp;#34;K&amp;#34;,1000),
+        (&amp;#34;w&amp;#34;,10000),
+        (&amp;#34;M&amp;#34;,1000000)
+    },
+//新建表
+
+//按上表头
+    &amp;#34;UnitName&amp;#34;,[Value1],
+    &amp;#34;UnitValue&amp;#34;,[Value2]
+
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;日期表&#34;&gt;日期表&lt;/h1&gt;
+&lt;p&gt;以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好&lt;/p&gt;
+&lt;h2 id=&#34;第一种直接指定日期&#34;&gt;第一种，直接指定日期&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;日期表 = ADDCOLUMNS (
+CALENDAR (DATE(2018,1,1), DATE(2019,12,31)),
+&amp;#34;年度&amp;#34;, YEAR ( [Date] ),
+&amp;#34;月份&amp;#34;, FORMAT ( [Date], &amp;#34;MM&amp;#34; ),
+&amp;#34;周&amp;#34;,WEEKNUM([Date],2),
+&amp;#34;年月&amp;#34;, FORMAT ( [Date], &amp;#34;YYYY/MM&amp;#34; ),
+&amp;#34;星期&amp;#34;, WEEKDAY ( [Date],2 ) &amp;amp; &amp;#34;-&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;dddd&amp;#34; ),
+&amp;#34;季度&amp;#34;, &amp;#34;Q&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;Q&amp;#34; ),
+&amp;#34;年份季度&amp;#34;, FORMAT ( [Date], &amp;#34;YYYY&amp;#34; ) &amp;amp; &amp;#34;/Q&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;Q&amp;#34; ))
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;第二种用事实表中的日期自动化程度高&#34;&gt;第二种，用事实表中的日期，自动化程度高&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;日期表 =
+GENERATE(
+CALENDAR(
+    MIN(&amp;#39;事实表&amp;#39;[日期]),//注意：这里需要替换成你自己的数据
+    MAX(&amp;#39;事实表&amp;#39;[日期])//注意：这里需要替换成你自己的数据
+),
+VAR DA=[Date]
+VAR YEAR=YEAR(DA)
+VAR QUARTER=&amp;#34;季度&amp;#34;&amp;amp;FORMAT(DA,&amp;#34;Q&amp;#34;)
+VAR MONTE=FORMAT(DA,&amp;#34;MM&amp;#34;)&amp;amp;&amp;#34;月&amp;#34;
+VAR DAY=DAY(DA)
+VAR WEEKID=WEEKDAY(DA,2)
+RETURN
+ROW(
+    &amp;#34;年度&amp;#34;,YEAR,
+    &amp;#34;季度&amp;#34;,QUARTER,
+    &amp;#34;月份&amp;#34;,MONTE,
+    &amp;#34;日&amp;#34;,DAY,
+    &amp;#34;年度季度&amp;#34;,YEAR&amp;amp;QUARTER,
+    &amp;#34;年度月份&amp;#34;,YEAR&amp;amp;MONTE,
+    &amp;#34;星期&amp;#34;,WEEKID
+)
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;momytd&#34;&gt;MOM、YTD&lt;/h1&gt;
+&lt;h2 id=&#34;去年同期&#34;&gt;去年同期&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;去年同期=CALCULATE([销售金额],SAMEPERIODLASTYEAR(&amp;#39;日期表&amp;#39;[Date]))
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;去年同期=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,YEAR))
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;月环比&#34;&gt;月环比&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;月环比=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,MONTH))
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;ytd年度累计&#34;&gt;YTD年度累计&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;YTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date])
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;ytd计算逻辑&#34;&gt;YTD计算逻辑&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;YTD = 
+CALCULATE(
+[销售金额],
+FILTER(
+ALL(&amp;#39;日期表&amp;#39;[Date]),
+&amp;#39;日期表&amp;#39;[Date]&amp;lt;=MAX(&amp;#39;日期表&amp;#39;[Date]) &amp;amp;&amp;amp; YEAR(&amp;#39;日期表&amp;#39;[Date])=YEAR(MAX(&amp;#39;日期表&amp;#39;[Date]))
+)
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;从指定日期开始年度累计举例为从4月开始累计&#34;&gt;从指定日期开始年度累计，举例为从4月开始累计&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;FYTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date],&amp;#34;3-31&amp;#34;)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;wtd周累计至今&#34;&gt;WTD周累计至今&lt;/h2&gt;
+&lt;p&gt;就是周数相同的，小于等于当天的这几日的数据&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;本周至今WTD =
+VAR curyearweek=SELECTEDVALUE(&amp;#39;日期表&amp;#39;[年度周数])
+RETURN
+CALCULATE(
+[销售金额],
+FILTER(
+ALL(&amp;#39;日期表&amp;#39;),
+&amp;#39;日期表&amp;#39;[年度周数]=curyearweek
+&amp;amp;&amp;amp;&amp;#39;日期表&amp;#39;[日期]&amp;lt;=MAX(&amp;#39;日期表&amp;#39;[日期])
+)
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;上周同期&#34;&gt;上周同期&lt;/h2&gt;
+&lt;p&gt;用于天维度的上周同比，用周维度会有问题&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;上周同期 销售额 =
+CALCULATE(
+[销售金额],
+DATEADD(&amp;#39;日期表&amp;#39;[日期],-7,DAY)
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;周环比&#34;&gt;周环比&lt;/h2&gt;
+&lt;h3 id=&#34;第一种&#34;&gt;第一种&lt;/h3&gt;
+&lt;p&gt;第一周，会出现一些问题，主要是由于第一周没有上期数据，并且第一周的天数很可能不完整&lt;/p&gt;
+&lt;p&gt;实际上就是本周数据和上周数据的对比，只要计算出上周累计的数据，周环比也就可以简单的计算出来了。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;上周累计 =
+VAR curyear= SELECTEDVALUE(&amp;#39;日期表&amp;#39;[年度])
+VAR curweeknum=SELECTEDVALUE(&amp;#39;日期表&amp;#39;[周数])
+RETURN
+CALCULATE(
+[销售金额],
+FILTER(
+ALL(&amp;#39;日期表&amp;#39;),
+&amp;#39;日期表&amp;#39;[年度]=curyear
+&amp;amp;&amp;amp;&amp;#39;日期表&amp;#39;[周数]=curweeknum-1
+)
+)
+
+
+周环比 = DIVIDE([销售金额],[上周累计])-1
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;第二种&#34;&gt;第二种&lt;/h3&gt;
+&lt;p&gt;把整个日期看成是一个整体，即无论多少年，都是不断的周累加，同样第一周会有点问题，但跨年就比较简单了&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/476790194/answer/2035649720%C2%A0&#34;&gt;参考这个&lt;/a&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ADDCOLUMNS(
+        date_table_base , 
+        &amp;#34;WeekNumerInYear&amp;#34; , WEEKNUM( [Date] , 2 ) ,//年周，周一为第一天
+        &amp;#34;WeekNumberGlobal&amp;#34; , 
+        	DATEDIFF( 
+				MINX( FILTER( date_table_base , [DayNumberInWeek] = 1 ) , [Date] ) , 
+				[Date] - 1 , 
+				WEEK 
+			)
+    )
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;本地图像的使用&#34;&gt;本地图像的使用&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;图像先导入数据源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;直接导入并编辑&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;保留Content列&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加自定义列&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;输入公式：&amp;ldquo;data:image/jpeg;base64,&amp;quot;&amp;amp;Binary.ToText([Content])&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;该列就成为了图像URL了，到时候直接当图片用就可以了&lt;/p&gt;
+&lt;p&gt;仅适用于小图像，一般都是几十KB这样子，太大的会被裁剪，毕竟不用加载网络图片了&lt;/p&gt;
+&lt;h1 id=&#34;评分加相应数量的星星&#34;&gt;评分加相应数量的星星&lt;/h1&gt;
+&lt;p&gt;使用Emoji图像&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;好评 = REPT(&amp;#34;⭐&amp;#34;,AVERAGE(&amp;#39;门店评分&amp;#39;[评分]))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用uincode代码作为图像&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;好评 = REPT(UNICHAR(9733),AVERAGE(&amp;#39;门店评分&amp;#39;[评分]))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个是模仿最高分5分，得分四分就是4颗实心星星，1颗空心星星&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;好评 = REPT(UNICHAR(9733),AVERAGE(&amp;#39;门店评分&amp;#39;[评分]))&amp;amp;REPT(UNICHAR(9734),5-AVERAGE(&amp;#39;门店评分&amp;#39;[评分]))
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;switch函数指标更换&#34;&gt;SWITCH函数、指标更换&lt;/h1&gt;
+&lt;h2 id=&#34;第一种硬来麻烦是麻烦但清晰容易改&#34;&gt;第一种，硬来，麻烦是麻烦，但清晰容易改&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;同期 = 
+SWITCH(TRUE(),
+SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;销售额&amp;#34;,[销售额-同期],
+SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;销售量&amp;#34;,[销售量-同期],
+SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;毛利额&amp;#34;,[毛利额-同期],
+SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;来客数&amp;#34;,[来客数-同期],
+SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;毛利率&amp;#34;,DIVIDE([毛利额-同期],[销售额-同期]),
+SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;客单价&amp;#34;,DIVIDE([销售额-同期],[来客数-同期]),
+SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;客单量&amp;#34;,DIVIDE([销售额-同期],[销售量-同期]),
+[销售额-同期])
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;换个思路用参数也可以参考这个其实更方便&#34;&gt;换个思路，用参数，也可以参考，这个其实更方便&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;同期 =
+
+VAR UserCode = SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])
+
+VAR UserResult= 
+	SWITCH(  TRUE() ,
+	UserCode = &amp;#34;Sales&amp;#34; , [KPI.订单销售额]，
+	UserCode = &amp;#34;Volume&amp;#34; , [KPI.销售数量]，
+	UserCode = &amp;#34;Profit%&amp;#34; , [KPI.利润率]，
+	BLANK()
+	）
+RETURN UserResult
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;中国地图形状地图&#34;&gt;中国地图#形状地图&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/zhangjinmin/zhangjinmin.github.io/blob/main/%E4%B8%AD%E5%9B%BD%E5%9C%B0%E5%9B%BE%E5%BD%A2%E7%8A%B6.json&#34;&gt;下载地址&lt;/a&gt;&lt;/p&gt;
+- https://zhangjinmin.github.io/post/ceshi/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title></title>
+        <link>https://zhangjinmin.github.io/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://zhangjinmin.github.io/archives/</guid>
+        <description>ZhangJM https://zhangjinmin.github.io/archives/ -- https://zhangjinmin.github.io/archives/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Math Typesetting</title>
+        <link>https://zhangjinmin.github.io/post/math-typesetting/</link>
+        <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://zhangjinmin.github.io/post/math-typesetting/</guid>
+        <description>ZhangJM https://zhangjinmin.github.io/post/math-typesetting/ -&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;
+&lt;p&gt;In this example we will be using &lt;a href=&#34;https://katex.org/&#34;&gt;KaTeX&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a partial under &lt;code&gt;/layouts/partials/math.html&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Within this partial reference the &lt;a href=&#34;https://katex.org/docs/autorender.html&#34;&gt;Auto-render Extension&lt;/a&gt; or host these scripts locally.&lt;/li&gt;
+&lt;li&gt;Include the partial in your templates like so:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{ &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt; or .Params.math .Site.Params.math }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{ partial &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;math.html&amp;#34;&lt;/span&gt; . }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{ end }}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;To enable KaTex globally set the parameter &lt;code&gt;math&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt; in a project&amp;rsquo;s configuration&lt;/li&gt;
+&lt;li&gt;To enable KaTex on a per page basis include the parameter &lt;code&gt;math: true&lt;/code&gt; in content files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Use the online reference of &lt;a href=&#34;https://katex.org/docs/supported.html&#34;&gt;Supported TeX Functions&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;p&gt;Block math:
+$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$&lt;/p&gt;- https://zhangjinmin.github.io/post/math-typesetting/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Emoji Support</title>
+        <link>https://zhangjinmin.github.io/post/emoji-support/</link>
+        <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://zhangjinmin.github.io/post/emoji-support/</guid>
+        <description>ZhangJM https://zhangjinmin.github.io/post/emoji-support/ -&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://gohugo.io/functions/emojify/&#34;&gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; function can be called directly in templates or &lt;a href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;&gt;Inline Shortcodes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To enable emoji globally, set &lt;code&gt;enableEmoji&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt; in your site&amp;rsquo;s &lt;a href=&#34;https://gohugo.io/getting-started/configuration/&#34;&gt;configuration&lt;/a&gt; and then you can type emoji shorthand codes directly in content files; e.g.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;The &lt;a href=&#34;http://www.emoji-cheat-sheet.com/&#34;&gt;Emoji cheat sheet&lt;/a&gt; is a useful reference for emoji shorthand codes.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;N.B.&lt;/strong&gt; The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.emoji {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://zhangjinmin.github.io/post/emoji-support/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>About</title>
+        <link>https://zhangjinmin.github.io/about/</link>
+        <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://zhangjinmin.github.io/about/</guid>
+        <description>ZhangJM https://zhangjinmin.github.io/about/ -&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;&gt;Apache Licence 2.0.&lt;/a&gt; Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
+&lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yuin/goldmark&#34;&gt;https://github.com/yuin/goldmark&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/alecthomas/chroma&#34;&gt;https://github.com/alecthomas/chroma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/muesli/smartcrop&#34;&gt;https://github.com/muesli/smartcrop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;https://github.com/spf13/cobra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;https://github.com/spf13/viper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.&lt;/p&gt;
+&lt;p&gt;Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.&lt;/p&gt;
+&lt;p&gt;Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.&lt;/p&gt;
+&lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+- https://zhangjinmin.github.io/about/ - This is a customized copyright.</description>
+        </item>
+    
+    
+  </channel>
+</rss> 
