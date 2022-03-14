@@ -1,100 +1,56 @@
 <!DOCTYPE html>
+<html lang="zh-hans">
 
-
-<html lang="en-us" data-theme="">
 <head>
-	<meta name="generator" content="Hugo 0.94.2" />
     
-        
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer-when-downgrade">
-
-<title>ZhangJM</title>
-
-<meta name="description" content="">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="HandheldFriendly" content="True" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.94.2" />
 
 
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/dsrkafuu/dsr-cdn-main@1/images/favicons/dsrca.ico" />
 
 
 
-<link rel="alternate" type="application/rss+xml" href="https://zhangjinmin.github.io/index.xml" title="ZhangJM" />
-<link rel="icon" type="image/x-icon" href="https://zhangjinmin.github.io/favicon.ico">
-<link rel="apple-touch-icon-precomposed" href="https://zhangjinmin.github.io/favicon.png">
+<title>ZhangJM - A minimal Hugo theme.</title>
+
+
+<meta name="author" content="Hugo Authors" />
+
+
+<meta name="description" content="A minimal Hugo theme with nice theme color." />
+
+
+<link rel="alternate" type="application/rss+xml" href="hhttps://zhangjinmin.github.io/index.xml" title="ZhangJM" />
+
+<meta property="og:title" content="" />
+<meta name="twitter:title" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="hhttps://zhangjinmin.github.io/" /><meta property="og:image" content="hhttps://zhangjinmin.github.io/img/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="hhttps://zhangjinmin.github.io/img/og.png" /><meta property="og:updated_time" content="2022-03-15T01:22:56+08:00" />
 
 
 <style>
-  body {
-    visibility: hidden;
-    opacity: 0;
-  }
+    @media (prefers-color-scheme: dark) {
+        body[data-theme='auto'] img {
+            filter: brightness(60%);
+        }
+    }
+
+    body[data-theme='dark'] img {
+        filter: brightness(60%);
+    }
 </style>
 
-<noscript>
-  <style>
-    body {
-      visibility: visible;
-      opacity: 1;
-    }
-  </style>
-</noscript>
 
 
 
-    
-
-
-
-
-
-    
-    
-        
-    
-    
-
-    
-        <link rel="stylesheet" href="https://zhangjinmin.github.io/css/style.min.cff15ae98f02d073d218fa54a2ec573c41bfd9ae3161060330c0e49225089424.css" integrity="sha256-z/Fa6Y8C0HPSGPpUouxXPEG/2a4xYQYDMMDkkiUIlCQ=">
-    
-
-
-
-
-
-    
-
-    
-
-
-
-
-
-    
-    
-        
-    
-    
-
-    
-        <script src="https://zhangjinmin.github.io/js/script.min.a65afe903825231554d9b55b073eb144da4ccf2d2823b216dcbc6cc656c9de76.js" type="text/javascript" charset="utf-8" integrity="sha256-plr&#43;kDglIxVU2bVbBz6xRNpMzy0oI7IW3LxsxlbJ3nY="></script>
-    
-
-
-
-
-
-
-
-<meta property="og:title" content="" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://zhangjinmin.github.io/" />
-
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=""/>
+<link rel="stylesheet" href="#ZgotmplZ" />
 
 
 
@@ -103,516 +59,381 @@
 
 
 
-
-
-
-    
 </head>
-<body>
-    <a class="skip-main" href="#main">Skip to main content</a>
-    <div class="container">
-        <header class="common-header"> 
-            
-                <div class="header-top">
-    <h1 class="site-title">
-    <a href="/">ZhangJM</a>
-</h1>
-    <ul class="social-icons">
 
-
-
-
-
-</ul>
-</div>
-
-    <nav>
-        
-        
-        <a class="" href="https://zhangjinmin.github.io/posts/" title="Archive">Archive</a>
-        
-    </nav>
-
-
-
-
-            
-        </header>
-        <main id="main" tabindex="-1"> 
-            
-    <div class="homepage-content">
-        
-    </div>
-
-    <div class="articles h-feed">
-        
-        
-            <article class="post-list h-feed">
-    <div class="post-header">
-        <header>
-            <h1 class="p-name post-title draft"><a class="u-url" href="/post/ceshi/">Ceshi</a></h1>
-        </header>
-        
-    </div>
-
-    
-        <div class="content post-summary p-summary">
-            PowerBI的一些功能的备注，全靠搜索，有空加点关键字上去
-[TOC]
-DAX新建表     Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上表头 //以下是新建表，但没有表头 { (&#34;K&#34;,1000), (&#34;w&#34;,10000), (&#34;M&#34;,1000000) }, //新建表 //按上表头 &#34;UnitName&#34;,[Value1], &#34;UnitValue&#34;,[Value2] ) 日期表     以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好
-第一种，直接指定日期     日期表 = ADDCOLUMNS ( CALENDAR (DATE(2018,1,1), DATE(2019,12,31)), &#34;年度&#34;, YEAR ( [Date] ), &#34;月份&#34;, FORMAT ( [Date], &#34;MM&#34; ), &#34;周&#34;,WEEKNUM([Date],2), &#34;年月&#34;, FORMAT ( [Date], &#34;YYYY/MM&#34; ), &#34;星期&#34;, WEEKDAY ( [Date],2 ) &amp; &#34;-&#34; &amp; FORMAT ( [Date], &#34;dddd&#34; ), &#34;季度&#34;, &#34;Q&#34; &amp; FORMAT ( [Date], &#34;Q&#34; ), &#34;年份季度&#34;, FORMAT ( [Date], &#34;YYYY&#34; ) &amp; &#34;/Q&#34; &amp; FORMAT ( [Date], &#34;Q&#34; )) 第二种，用事实表中的日期，自动化程度高     日期表 = GENERATE( CALENDAR( MIN(&#39;事实表&#39;[日期]),//注意：这里需要替换成你自己的数据 MAX(&#39;事实表&#39;[日期])//注意：这里需要替换成你自己的数据 ), VAR DA=[Date] VAR YEAR=YEAR(DA) VAR QUARTER=&#34;季度&#34;&amp;FORMAT(DA,&#34;Q&#34;) VAR MONTE=FORMAT(DA,&#34;MM&#34;)&amp;&#34;月&#34; VAR DAY=DAY(DA) VAR WEEKID=WEEKDAY(DA,2) RETURN ROW( &#34;年度&#34;,YEAR, &#34;季度&#34;,QUARTER, &#34;月份&#34;,MONTE, &#34;日&#34;,DAY, &#34;年度季度&#34;,YEAR&amp;QUARTER, &#34;年度月份&#34;,YEAR&amp;MONTE, &#34;星期&#34;,WEEKID ) ) MOM、YTD     去年同期     去年同期=CALCULATE([销售金额],SAMEPERIODLASTYEAR(&#39;日期表&#39;[Date])) 去年同期=CALCULATE([销售金额],DATEADD(&#39;日期表&#39;[Date],-1,YEAR)) 月环比     月环比=CALCULATE([销售金额],DATEADD(&#39;日期表&#39;[Date],-1,MONTH)) YTD年度累计     YTD = TOTALYTD([销售金额],&#39;日期表&#39;[Date]) YTD计算逻辑     YTD = CALCULATE( [销售金额], FILTER( ALL(&#39;日期表&#39;[Date]), &#39;日期表&#39;[Date]&lt;=MAX(&#39;日期表&#39;[Date]) &amp;&amp; YEAR(&#39;日期表&#39;[Date])=YEAR(MAX(&#39;日期表&#39;[Date])) ) ) 从指定日期开始年度累计，举例为从4月开始累计     FYTD = TOTALYTD([销售金额],&#39;日期表&#39;[Date],&#34;3-31&#34;) WTD周累计至今     就是周数相同的，小于等于当天的这几日的数据
-        </div>
-    
-    
-    
-    
-
-    
-
-
-<div class="post-info">
-    
-        <div class="post-date dt-published">2022-03-15</div>
-    
-
-    <a class="post-hidden-url u-url" href="https://zhangjinmin.github.io/post/ceshi/">https://zhangjinmin.github.io/post/ceshi/</a>
-    <a href="https://zhangjinmin.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">ZhangJM</a>
-
-
-    <div class="post-taxonomies">
-        
-            
-    </div>
-</div>
-
-</article>
-        
-            <article class="post-list h-feed">
-    <div class="post-header">
-        <header>
-            <h1 class="p-name post-title draft"><a class="u-url" href="/post/first/">First</a></h1>
-        </header>
-        
-    </div>
-
-    
-        <div class="content post-summary p-summary">
-            
-        </div>
-    
-    
-    
-    
-
-    
-
-
-<div class="post-info">
-    
-        <div class="post-date dt-published">2022-03-15</div>
-    
-
-    <a class="post-hidden-url u-url" href="https://zhangjinmin.github.io/post/first/">https://zhangjinmin.github.io/post/first/</a>
-    <a href="https://zhangjinmin.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">ZhangJM</a>
-
-
-    <div class="post-taxonomies">
-        
-            
-    </div>
-</div>
-
-</article>
-        
-            <article class="post-list h-feed">
-    <div class="post-header">
-        <header>
-            <h1 class="p-name post-title"><a class="u-url" href="/post/first-post/">First Post</a></h1>
-        </header>
-        
-    </div>
-
-    
-        <div class="content post-summary p-summary">
-            
-        </div>
-    
-    
-    
-    
-
-    
-
-
-<div class="post-info">
-    
-        <div class="post-date dt-published">2022-03-13</div>
-    
-
-    <a class="post-hidden-url u-url" href="https://zhangjinmin.github.io/post/first-post/">https://zhangjinmin.github.io/post/first-post/</a>
-    <a href="https://zhangjinmin.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">ZhangJM</a>
-
-
-    <div class="post-taxonomies">
-        
-            
-    </div>
-</div>
-
-</article>
-        
-            <article class="post-list h-feed">
-    <div class="post-header">
-        <header>
-            <h1 class="p-name post-title"><a class="u-url" href="/post/markdown-syntax/">Markdown Syntax Guide</a></h1>
-        </header>
-        
-    </div>
-
-    
-        <div class="content post-summary p-summary">
-            <p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>
-        </div>
-    
-    
-    
-    
-
-    
-
-
-<div class="post-info">
-    
-        <div class="post-date dt-published">2019-03-11</div>
-    
-
-    <a class="post-hidden-url u-url" href="https://zhangjinmin.github.io/post/markdown-syntax/">https://zhangjinmin.github.io/post/markdown-syntax/</a>
-    <a href="https://zhangjinmin.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">Hugo Authors</a>
-
-
-    <div class="post-taxonomies">
-        
-            <ul class="post-categories">
-                
-                    
-                    <li><a href="https://zhangjinmin.github.io/categories/themes/">themes</a></li>
-                
-                    
-                    <li><a href="https://zhangjinmin.github.io/categories/syntax/">syntax</a></li>
-                
-            </ul>
-            
-            
-                <ul class="post-tags">
-                    
-                        
-                        <li><a href="https://zhangjinmin.github.io/tags/markdown/">#markdown</a></li>
-                    
-                        
-                        <li><a href="https://zhangjinmin.github.io/tags/css/">#css</a></li>
-                    
-                        
-                        <li><a href="https://zhangjinmin.github.io/tags/html/">#html</a></li>
-                    
-                        
-                        <li><a href="https://zhangjinmin.github.io/tags/themes/">#themes</a></li>
-                    
-                </ul>
-        
-    </div>
-</div>
-
-</article>
-        
-            <article class="post-list h-feed">
-    <div class="post-header">
-        <header>
-            <h1 class="p-name post-title"><a class="u-url" href="/post/rich-content/">Rich Content</a></h1>
-        </header>
-        
-    </div>
-
-    
-        <div class="content post-summary p-summary">
-            
-        </div>
-    
-    
-    
-    
-
-    
-
-
-<div class="post-info">
-    
-        <div class="post-date dt-published">2019-03-10</div>
-    
-
-    <a class="post-hidden-url u-url" href="https://zhangjinmin.github.io/post/rich-content/">https://zhangjinmin.github.io/post/rich-content/</a>
-    <a href="https://zhangjinmin.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">Hugo Authors</a>
-
-
-    <div class="post-taxonomies">
-        
-            
-                <ul class="post-tags">
-                    
-                        
-                        <li><a href="https://zhangjinmin.github.io/tags/shortcodes/">#shortcodes</a></li>
-                    
-                        
-                        <li><a href="https://zhangjinmin.github.io/tags/privacy/">#privacy</a></li>
-                    
-                </ul>
-        
-    </div>
-</div>
-
-</article>
-        
-            <article class="post-list h-feed">
-    <div class="post-header">
-        <header>
-            <h1 class="p-name post-title"><a class="u-url" href="/post/placeholder-text/">Placeholder Text</a></h1>
-        </header>
-        
-    </div>
-
-    
-        <div class="content post-summary p-summary">
-            <p>Lorem est tota propiore conpellat pectoribus de pectora summo.</p>
-        </div>
-    
-    
-    
-    
-
-    
-
-
-<div class="post-info">
-    
-        <div class="post-date dt-published">2019-03-09</div>
-    
-
-    <a class="post-hidden-url u-url" href="https://zhangjinmin.github.io/post/placeholder-text/">https://zhangjinmin.github.io/post/placeholder-text/</a>
-    <a href="https://zhangjinmin.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">Hugo Authors</a>
-
-
-    <div class="post-taxonomies">
-        
-            
-                <ul class="post-tags">
-                    
-                        
-                        <li><a href="https://zhangjinmin.github.io/tags/markdown/">#markdown</a></li>
-                    
-                        
-                        <li><a href="https://zhangjinmin.github.io/tags/text/">#text</a></li>
-                    
-                </ul>
-        
-    </div>
-</div>
-
-</article>
-        
-            <article class="post-list h-feed">
-    <div class="post-header">
-        <header>
-            <h1 class="p-name post-title"><a class="u-url" href="/post/math-typesetting/">Math Typesetting</a></h1>
-        </header>
-        
-    </div>
-
-    
-        <div class="content post-summary p-summary">
-            <p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.</p>
-        </div>
-    
-    
-    
-    
-
-    
-
-
-<div class="post-info">
-    
-        <div class="post-date dt-published">2019-03-08</div>
-    
-
-    <a class="post-hidden-url u-url" href="https://zhangjinmin.github.io/post/math-typesetting/">https://zhangjinmin.github.io/post/math-typesetting/</a>
-    <a href="https://zhangjinmin.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">Hugo Authors</a>
-
-
-    <div class="post-taxonomies">
-        
-            
-    </div>
-</div>
-
-</article>
-        
-            <article class="post-list h-feed">
-    <div class="post-header">
-        <header>
-            <h1 class="p-name post-title"><a class="u-url" href="/post/emoji-support/">Emoji Support</a></h1>
-        </header>
-        
-    </div>
-
-    
-        <div class="content post-summary p-summary">
-            <p>Emoji can be enabled in a Hugo project in a number of ways.</p>
-        </div>
-    
-    
-    
-    
-
-    
-
-
-<div class="post-info">
-    
-        <div class="post-date dt-published">2019-03-05</div>
-    
-
-    <a class="post-hidden-url u-url" href="https://zhangjinmin.github.io/post/emoji-support/">https://zhangjinmin.github.io/post/emoji-support/</a>
-    <a href="https://zhangjinmin.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">Hugo Authors</a>
-
-
-    <div class="post-taxonomies">
-        
-            
-                <ul class="post-tags">
-                    
-                        
-                        <li><a href="https://zhangjinmin.github.io/tags/emoji/">#emoji</a></li>
-                    
-                </ul>
-        
-    </div>
-</div>
-
-</article>
-        
-        
-
-    </div>
-
-
-        </main>
-        
-            <footer class="common-footer">
-    
-    
-
-    <div class="common-footer-bottom">
-        
-        <div class="copyright">
-            <p>© ZhangJM, 2022<br>
-            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.<br>
-            
-            </p>  
-        </div> 
-
-        
-
-    
-
-
-
-
-<script>
-const STORAGE_KEY = 'user-color-scheme'
-const defaultTheme = "light-without-switcher"
-
-let currentTheme
-let switchButton
-let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
-
-const autoChangeScheme = e => {
-    currentTheme = e.matches ? 'dark' : 'light'
-    document.documentElement.setAttribute('data-theme', currentTheme)
-    changeButtonText()
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    switchButton = document.querySelector('.theme-switcher')
-    currentTheme = detectCurrentScheme()
-    if (currentTheme == 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark')
-    }
-    if (currentTheme == 'auto') {
-        autoChangeScheme(autoDefinedScheme);
-        autoDefinedScheme.addListener(autoChangeScheme);
-    }
-
-    if (switchButton) {
-        changeButtonText()
-        switchButton.addEventListener('click', switchTheme, false)
-    }
+<body
+  data-theme="auto"
+  data-theme-auto='true'
+  >
+    <script data-cfasync="false">
   
-    showContent()
-})
-
-function detectCurrentScheme() {
-    if (localStorage.getItem(STORAGE_KEY)) {
-        return localStorage.getItem(STORAGE_KEY)
-    } 
-    if (defaultTheme) {
-        return defaultTheme
-    } 
-    if (!window.matchMedia) {
-        return 'light'
-    } 
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark'
+  var fujiThemeData = localStorage.getItem('fuji_data-theme');
+  
+  if (!fujiThemeData) {
+    localStorage.setItem('fuji_data-theme', 'auto');
+  } else {
+    
+    if (fujiThemeData !== 'auto') {
+      document.body.setAttribute('data-theme', fujiThemeData === 'dark' ? 'dark' : 'light');
     }
-    return 'light'
-}
+  }
+</script>
 
-function changeButtonText(switchButton)
-{   
-    if (switchButton) {
-        switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
-    }
-}
-
-function switchTheme(e) {
-    if (currentTheme == 'dark') {
-        localStorage.setItem(STORAGE_KEY, 'light')
-        document.documentElement.setAttribute('data-theme', 'light')
-        currentTheme = 'light'
-    } else {
-        localStorage.setItem(STORAGE_KEY, 'dark')
-        document.documentElement.setAttribute('data-theme', 'dark')
-        currentTheme = 'dark'
-    }
-    changeButtonText()
-}
-
-function showContent() {
-    document.body.style.visibility = 'visible';
-    document.body.style.opacity = 1;
-}
-</script>   
+    <header>
+    <div class="container-lg clearfix">
+        <div class="col-12 header">
+            <a class="title-main" href="hhttps://zhangjinmin.github.io/">ZhangJM</a>
+            
+            <span class="title-sub">A minimal Hugo theme.</span>
+            
+        </div>
     </div>
+</header>
 
-    <p class="h-card vcard">
+    <main>
+        <div class="container-lg clearfix">
+            
+            <div class="col-12 col-md-9 float-left content">
+                
 
-    <a href=https://zhangjinmin.github.io/ class="p-name u-url url fn" rel="me">ZhangJM</a> 
 
+
+<div class="post">
+    <h2 class="post-item post-title">
+        <a href="#ZgotmplZ">Ceshi</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2022-03-15</span>
+
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;2667 字</span>
+
+<span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;无标签</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        PowerBI的一些功能的备注，全靠搜索，有空加点关键字上去 [TOC] DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上表头 //以下是新建表，但没有表头 { (&quot;K&quot;,1000), (&quot;w&quot;,10000), (&quot;M&quot;,1000000) }, //新建表 //按上表头 &quot;UnitName&quot;,[Value1], &quot;UnitValue&quot;,[Value2] )
+    </div>
+</div>
+
+<div class="post">
+    <h2 class="post-item post-title">
+        <a href="#ZgotmplZ">First</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2022-03-15</span>
+
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;0 字</span>
+
+<span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;无标签</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        
+    </div>
+</div>
+
+<div class="post">
+    <h2 class="post-item post-title">
+        <a href="#ZgotmplZ">First Post</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2022-03-13</span>
+
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;0 字</span>
+
+<span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;无标签</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        
+    </div>
+</div>
+
+<div class="post">
+    <h2 class="post-item post-title">
+        <a href="#ZgotmplZ">Markdown Syntax Guide</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2019-03-11</span>
+
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;444 字</span>
+
+<span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/markdown">markdown</a>&nbsp;<a href="/tags/css">css</a>&nbsp;<a href="/tags/html">html</a>&nbsp;<a href="/tags/themes">themes</a>&nbsp;</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        <p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>
+    </div>
+</div>
+
+<div class="post">
+    <h2 class="post-item post-title">
+        <a href="#ZgotmplZ">Rich Content</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2019-03-10</span>
+
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;0 字</span>
+
+<span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/shortcodes">shortcodes</a>&nbsp;<a href="/tags/privacy">privacy</a>&nbsp;</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        
+    </div>
+</div>
+
+<div class="post">
+    <h2 class="post-item post-title">
+        <a href="#ZgotmplZ">Placeholder Text</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2019-03-09</span>
+
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;278 字</span>
+
+<span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/markdown">markdown</a>&nbsp;<a href="/tags/text">text</a>&nbsp;</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        <p>Lorem est tota propiore conpellat pectoribus de pectora summo.</p>
+    </div>
+</div>
+
+<div class="post">
+    <h2 class="post-item post-title">
+        <a href="#ZgotmplZ">Math Typesetting</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2019-03-08</span>
+
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;120 字</span>
+
+<span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;无标签</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        <p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.</p>
+    </div>
+</div>
+
+<div class="post">
+    <h2 class="post-item post-title">
+        <a href="#ZgotmplZ">Emoji Support</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2019-03-05</span>
+
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;164 字</span>
+
+<span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/emoji">emoji</a>&nbsp;</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        <p>Emoji can be enabled in a Hugo project in a number of ways.</p>
+    </div>
+</div>
+
+            </div>
+            <aside class="col-12 col-md-3 float-left sidebar">
     
-
+    <div class="sidebar-item sidebar-pages">
+        <h3>页面</h3>
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/archives/">Archives</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+            <li>
+                <a href="/search/">Search</a>
+            </li>
+            
+        </ul>
+    </div>
     
-</p> 
+    <div class="sidebar-item sidebar-links">
+        <h3>链接</h3>
+        <ul>
+            
+        </ul>
+    </div>
+    
+    <div class="sidebar-item sidebar-tags">
+        <h3>标签</h3>
+        <div>
+            
+            <span>
+                <a href="/tags/css/">css</a>
+            </span>
+            
+            <span>
+                <a href="/tags/emoji/">emoji</a>
+            </span>
+            
+            <span>
+                <a href="/tags/html/">html</a>
+            </span>
+            
+            <span>
+                <a href="/tags/index/">index</a>
+            </span>
+            
+            <span>
+                <a href="/tags/markdown/">markdown</a>
+            </span>
+            
+            <span>
+                <a href="/tags/privacy/">privacy</a>
+            </span>
+            
+            <span>
+                <a href="/tags/shortcodes/">shortcodes</a>
+            </span>
+            
+            <span>
+                <a href="/tags/text/">text</a>
+            </span>
+            
+            <span>
+                <a href="/tags/themes/">themes</a>
+            </span>
+            
+        </div>
+    </div>
+    
+    
+    
+</aside>
+
+        </div>
+        <div class="btn">
+    <div class="btn-menu" id="btn-menu">
+        <i class="iconfont icon-grid-sharp"></i>
+    </div>
+    <div class="btn-toggle-mode">
+        <i class="iconfont icon-contrast-sharp"></i>
+    </div>
+    <div class="btn-scroll-top">
+        <i class="iconfont icon-chevron-up-circle-sharp"></i>
+    </div>
+</div>
+<aside class="sidebar-mobile" style="display: none;">
+  <div class="sidebar-wrapper">
+    
+    <div class="sidebar-item sidebar-pages">
+        <h3>页面</h3>
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/archives/">Archives</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+            <li>
+                <a href="/search/">Search</a>
+            </li>
+            
+        </ul>
+    </div>
+    
+    <div class="sidebar-item sidebar-links">
+        <h3>链接</h3>
+        <ul>
+            
+        </ul>
+    </div>
+    
+    <div class="sidebar-item sidebar-tags">
+        <h3>标签</h3>
+        <div>
+            
+            <span>
+                <a href="/tags/css/">css</a>
+            </span>
+            
+            <span>
+                <a href="/tags/emoji/">emoji</a>
+            </span>
+            
+            <span>
+                <a href="/tags/html/">html</a>
+            </span>
+            
+            <span>
+                <a href="/tags/index/">index</a>
+            </span>
+            
+            <span>
+                <a href="/tags/markdown/">markdown</a>
+            </span>
+            
+            <span>
+                <a href="/tags/privacy/">privacy</a>
+            </span>
+            
+            <span>
+                <a href="/tags/shortcodes/">shortcodes</a>
+            </span>
+            
+            <span>
+                <a href="/tags/text/">text</a>
+            </span>
+            
+            <span>
+                <a href="/tags/themes/">themes</a>
+            </span>
+            
+        </div>
+    </div>
+    
+    
+  </div>
+</aside>
+    </main>
+
+    <footer>
+    <div class="container-lg clearfix">
+        <div class="col-12 footer">
+            
+            <span>&copy; 2020-2022
+                <a href="hhttps://zhangjinmin.github.io/">ZJM</a>
+                 | <a href="https://zhangjinmin.github.io/">Source code</a> 
+                | 基于 <a href="https://github.com/dsrkafuu/hugo-theme-fuji/"
+                   target="_blank">Fuji-v2</a> &amp; <a href="https://gohugo.io/"
+                                                    target="_blank">Hugo</a> 构建
+            </span>
+        </div>
+    </div>
 </footer>
 
-        
-    </div>
+    
+<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/components/prism-core.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+<script defer src="/assets/js/fuji.min.js"></script>
+
+
+
 </body>
+
 </html>
