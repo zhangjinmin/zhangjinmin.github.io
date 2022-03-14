@@ -2,16 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://zhangjinmin.github.io/</loc>
+    <lastmod>2022-03-15T02:36:26+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangjinmin.github.io/tags/dax/</loc>
+    <lastmod>2022-03-15T02:36:26+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangjinmin.github.io/post/md/</loc>
+    <lastmod>2022-03-15T02:36:26+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangjinmin.github.io/post/</loc>
+    <lastmod>2022-03-15T02:36:26+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangjinmin.github.io/tags/powerbi/</loc>
+    <lastmod>2022-03-15T02:36:26+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangjinmin.github.io/tags/</loc>
+    <lastmod>2022-03-15T02:36:26+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangjinmin.github.io/post/ceshi/</loc>
+    <lastmod>2022-03-15T02:36:26+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangjinmin.github.io/tags/%E6%B5%8B%E8%AF%95%E7%94%A8/</loc>
+    <lastmod>2022-03-15T02:36:26+08:00</lastmod>
+  </url><url>
     <loc>https://zhangjinmin.github.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://zhangjinmin.github.io/</loc>
-    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://zhangjinmin.github.io/post/math-typesetting/</loc>
-    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zhangjinmin.github.io/post/</loc>
     <lastmod>2019-03-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zhangjinmin.github.io/tags/emoji/</loc>
@@ -20,13 +38,8 @@
     <loc>https://zhangjinmin.github.io/post/emoji-support/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://zhangjinmin.github.io/tags/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://zhangjinmin.github.io/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zhangjinmin.github.io/post/ceshi/</loc>
   </url><url>
     <loc>https://zhangjinmin.github.io/categories/</loc>
   </url><url>
