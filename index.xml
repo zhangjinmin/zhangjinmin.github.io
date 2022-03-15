@@ -271,19 +271,23 @@ ROW(
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
         
         <guid>https://zhangjinmin.github.io/about/</guid>
-        <description>ZhangJM https://zhangjinmin.github.io/about/ -&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;&gt;Apache Licence 2.0.&lt;/a&gt; Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
-&lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
+        <description>ZhangJM https://zhangjinmin.github.io/about/ -&lt;h1 id=&#34;zhangjm&#34;&gt;ZhangJM&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;数据分析师、食品品类管理咨询师、52周MD咨询师&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;曾服务&#34;&gt;曾服务&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/yuin/goldmark&#34;&gt;https://github.com/yuin/goldmark&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/alecthomas/chroma&#34;&gt;https://github.com/alecthomas/chroma&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/muesli/smartcrop&#34;&gt;https://github.com/muesli/smartcrop&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;https://github.com/spf13/cobra&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;https://github.com/spf13/viper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;曾长期服务于百家、联华等超市进行关于品类管理调整的建议，为企业进行有效的的资源配置，让企业不仅仅能够听懂品类管理知识，更能够做好品类管理；&lt;/li&gt;
+&lt;li&gt;曾服务于吉买盛、城市超市、云厨一站、百家、满好便利、久兴、华联、联华、生鲜传奇、谊品生鲜、永辉超级物种、永辉绿标店，为企业提供52周MD推进的数据支持，并出具项目执行建议报告，并对人员进行52周MD从懂到能做到做好的一系列培训与追踪，并对提升建议出具分析报告；&lt;/li&gt;
+&lt;li&gt;进行分析的内容包括但不限于常规销售分析、购物篮分析、RFM分析、52周MD分析、会员分析等；&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.&lt;/p&gt;
-&lt;p&gt;Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.&lt;/p&gt;
-&lt;p&gt;Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.&lt;/p&gt;
-&lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;个人优势&#34;&gt;个人优势&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;做过门店了解门店，甲方品牌公司工作经验与乙方咨询经验&lt;/li&gt;
+&lt;li&gt;服务规模以上企业超过10家，为企业进行52周MD、品类、会员、购物篮分析&lt;/li&gt;
+&lt;li&gt;为企业提供过营运管理培训、新店规划配合、品类管理规划&lt;/li&gt;
+&lt;li&gt;熟练使用各类计算机软件，能独立解决各种电脑、网络问题，有教师资格证书&lt;/li&gt;
+&lt;li&gt;数据清洗、统计、分析能力，并对数据进行可视化展示、复杂数据处理与分析&lt;/li&gt;
+&lt;li&gt;精研PowerBI、Excel，公式、透视表、PP的使用；良好PPT制作展示能力&lt;/li&gt;
+&lt;/ul&gt;
 - https://zhangjinmin.github.io/about/ - This is a customized copyright.</description>
         </item>
     
