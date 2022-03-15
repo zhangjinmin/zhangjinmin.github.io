@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>同环比 on ZhangJM</title>
+    <link>https://zhangjinmin.github.io/tags/%E5%90%8C%E7%8E%AF%E6%AF%94/</link>
+    <description>Recent content in 同环比 on ZhangJM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright><atom:link href="https://zhangjinmin.github.io/tags/%E5%90%8C%E7%8E%AF%E6%AF%94/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>各种同比 环比</title>
+      <link>https://zhangjinmin.github.io/post/20220315switchdax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhangjinmin.github.io/post/20220315switchdax/</guid>
+      <description>本地图像的使用   图像先导入数据源
+  直接导入并编辑
+  保留Content列
+  添加自定义列
+  输入公式：&amp;ldquo;data:image/jpeg;base64,&amp;quot;&amp;amp;Binary.ToText([Content])
+  该列就成为了图像URL了，到时候直接当图片用就可以了
+仅适用于小图像，一般都是几十KB这样子，太大的会被裁剪，毕竟不用加载网络图片了</description>
+    </item>
+    
+    <item>
+      <title>各种同比 环比</title>
+      <link>https://zhangjinmin.github.io/post/20220315tonghuanbi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhangjinmin.github.io/post/20220315tonghuanbi/</guid>
+      <description>MOM、YTD 去年同期 去年同期=CALCULATE([销售金额],SAMEPERIODLASTYEAR(&amp;#39;日期表&amp;#39;[Date])) 去年同期=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,YEAR)) 月环比 月环比=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,MONTH)) YTD年度累计 YTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date]) YTD计算逻辑 YTD = CALCULATE([销售金额],FILTER(ALL(&amp;#39;日期表&amp;#39;[Date]),&amp;#39;日期表&amp;#39;[Date]&amp;lt;=MAX(&amp;#39;日期表&amp;#39;[Date]) &amp;amp;&amp;amp; YEAR(&amp;#39;日期表&amp;#39;[Date])=YEAR(MAX(&amp;#39;日期表&amp;#39;[Date])))) 从指定日期开始年度累计，举例为从4月开始累计 FYTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date],&amp;#34;3-31&amp;#34;) WTD周累计至今 就是周数相同的，小于等于当天的这几日的数据
+本周至今WTD =VAR curyearweek=SELECTEDVALUE(&amp;#39;日期表&amp;#39;[年度周数])RETURNCALCULATE([销售金额],FILTER(ALL(&amp;#39;日期表&amp;#39;),&amp;#39;日期表&amp;#39;[年度周数]=curyearweek&amp;amp;&amp;amp;&amp;#39;日期表&amp;#39;[日期]&amp;lt;=MAX(&amp;#39;日期表&amp;#39;[日期]))) 上周同期 用于天维度的上周同比，用周维度会有问题
+上周同期 销售额 =CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[日期],-7,DAY)) 周环比 第一种 第一周，会出现一些问题，主要是由于第一周没有上期数据，并且第一周的天数很可能不完整
+实际上就是本周数据和上周数据的对比，只要计算出上周累计的数据，周环比也就可以简单的计算出来了。
+上周累计 =VAR curyear= SELECTEDVALUE(&amp;#39;日期表&amp;#39;[年度])VAR curweeknum=SELECTEDVALUE(&amp;#39;日期表&amp;#39;[周数])RETURNCALCULATE([销售金额],FILTER(ALL(&amp;#39;日期表&amp;#39;),&amp;#39;日期表&amp;#39;[年度]=curyear&amp;amp;&amp;amp;&amp;#39;日期表&amp;#39;[周数]=curweeknum-1))周环比 = DIVIDE([销售金额],[上周累计])-1 第二种 把整个日期看成是一个整体，即无论多少年，都是不断的周累加，同样第一周会有点问题，但跨年就比较简单了</description>
+    </item>
+    
+  </channel>
+</rss>

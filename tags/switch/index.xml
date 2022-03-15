@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Switch on ZhangJM</title>
+    <link>https://zhangjinmin.github.io/tags/switch/</link>
+    <description>Recent content in Switch on ZhangJM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright><atom:link href="https://zhangjinmin.github.io/tags/switch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switch函数切换KPI</title>
+      <link>https://zhangjinmin.github.io/post/20220315bendituxiang/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhangjinmin.github.io/post/20220315bendituxiang/</guid>
+      <description>SWITCH函数、指标更换 第一种，硬来，麻烦是麻烦，但清晰容易改 同期 = SWITCH(TRUE(),SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;销售额&amp;#34;,[销售额-同期],SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;销售量&amp;#34;,[销售量-同期],SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;毛利额&amp;#34;,[毛利额-同期],SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;来客数&amp;#34;,[来客数-同期],SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;毛利率&amp;#34;,DIVIDE([毛利额-同期],[销售额-同期]),SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;客单价&amp;#34;,DIVIDE([销售额-同期],[来客数-同期]),SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])=&amp;#34;客单量&amp;#34;,DIVIDE([销售额-同期],[销售量-同期]),[销售额-同期]) 换个思路，用参数，也可以参考，这个其实更方便 同期 =VAR UserCode = SELECTEDVALUE(&amp;#39;指标&amp;#39;[项目])VAR UserResult= SWITCH( TRUE() ,UserCode = &amp;#34;Sales&amp;#34; , [KPI.订单销售额]，UserCode = &amp;#34;Volume&amp;#34; , [KPI.销售数量]，UserCode = &amp;#34;Profit%&amp;#34; , [KPI.利润率]，BLANK()）RETURN UserResult </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html><head>
+<title>日期表</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:title" content="日期表" />
+<meta property="og:description" content="日期表 以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好
+第一种，直接指定日期 日期表 = ADDCOLUMNS (CALENDAR (DATE(2018,1,1), DATE(2019,12,31)),&#34;年度&#34;, YEAR ( [Date] ),&#34;月份&#34;, FORMAT ( [Date], &#34;MM&#34; ),&#34;周&#34;,WEEKNUM([Date],2),&#34;年月&#34;, FORMAT ( [Date], &#34;YYYY/MM&#34; ),&#34;星期&#34;, WEEKDAY ( [Date],2 ) &amp; &#34;-&#34; &amp; FORMAT ( [Date], &#34;dddd&#34; ),&#34;季度&#34;, &#34;Q&#34; &amp; FORMAT ( [Date], &#34;Q&#34; ),&#34;年份季度&#34;, FORMAT ( [Date], &#34;YYYY&#34; ) &amp; &#34;/Q&#34; &amp; FORMAT ( [Date], &#34;Q&#34; )) 第二种，用事实表中的日期，自动化程度高 日期表 =GENERATE(CALENDAR(MIN(&#39;事实表&#39;[日期]),//注意：这里需要替换成你自己的数据MAX(&#39;事实表&#39;[日期])//注意：这里需要替换成你自己的数据),VAR DA=[Date]VAR YEAR=YEAR(DA)VAR QUARTER=&#34;季度&#34;&amp;FORMAT(DA,&#34;Q&#34;)VAR MONTE=FORMAT(DA,&#34;MM&#34;)&amp;&#34;月&#34;VAR DAY=DAY(DA)VAR WEEKID=WEEKDAY(DA,2)RETURNROW(&#34;年度&#34;,YEAR,&#34;季度&#34;,QUARTER,&#34;月份&#34;,MONTE,&#34;日&#34;,DAY,&#34;年度季度&#34;,YEAR&amp;QUARTER,&#34;年度月份&#34;,YEAR&amp;MONTE,&#34;星期&#34;,WEEKID)) " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhangjinmin.github.io/post/20220315riqibiao/" /><meta property="article:section" content="post" />
+
+<meta property="og:site_name" content="My Blog" />
+
+
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://zhangjinmin.github.io/scss/journal.min.f4a8de07567a2d29619e0711662ef6251e3e59b642079f99490f654abf89a3c4.css" integrity="sha256-9KjeB1Z6LSlhngcRZi72JR4&#43;WbZCB5&#43;ZSQ9lSr&#43;Jo8Q=" media="screen">
+
+
+
+<link rel="stylesheet" href="https://zhangjinmin.github.io/scss/dark-mode.min.eeb8040aa9333250b7fec770f950bfe8ba9b18a5eeeaf2dfef61d84d3956f625.css" integrity="sha256-7rgECqkzMlC3/sdw&#43;VC/6LqbGKXu6vLf72HYTTlW9iU=" media="screen">
+
+
+<script src="/vendor/js/loadCSS.js"></script>
+<script>
+  loadCSS("https://fonts.googleapis.com/css?family=Fira+Mono|Material+Icons");
+</script>
+
+
+
+
+
+
+  <script src="/js/toc.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://zhangjinmin.github.io/">
+    
+        <div class="nav-title">
+            ZhangJM
+        </div>
+        
+        <div class="nav-subtitle">
+            随遇而安，岁月静好
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/posts">
+                Posts
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/about">
+                About
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    
+    
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%97%a5%e6%9c%9f%e8%a1%a8" onclick="onNavClick(`#日期表-nav`)" id="日期表-nav">
+									日期表
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%ac%ac%e4%b8%80%e7%a7%8d%e7%9b%b4%e6%8e%a5%e6%8c%87%e5%ae%9a%e6%97%a5%e6%9c%9f" onclick="onNavClick(`#第一种直接指定日期-nav`)" id="第一种直接指定日期-nav">
+									第一种，直接指定日期
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%ac%ac%e4%ba%8c%e7%a7%8d%e7%94%a8%e4%ba%8b%e5%ae%9e%e8%a1%a8%e4%b8%ad%e7%9a%84%e6%97%a5%e6%9c%9f%e8%87%aa%e5%8a%a8%e5%8c%96%e7%a8%8b%e5%ba%a6%e9%ab%98" onclick="onNavClick(`#第二种用事实表中的日期自动化程度高-nav`)" id="第二种用事实表中的日期自动化程度高-nav">
+									第二种，用事实表中的日期，自动化程度高
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+<div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/posts">
+                    Posts
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/about">
+                    About
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%97%a5%e6%9c%9f%e8%a1%a8" onclick="onNavClick(`#日期表-nav`)" id="日期表-nav">
+									日期表
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%ac%ac%e4%b8%80%e7%a7%8d%e7%9b%b4%e6%8e%a5%e6%8c%87%e5%ae%9a%e6%97%a5%e6%9c%9f" onclick="onNavClick(`#第一种直接指定日期-nav`)" id="第一种直接指定日期-nav">
+									第一种，直接指定日期
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%ac%ac%e4%ba%8c%e7%a7%8d%e7%94%a8%e4%ba%8b%e5%ae%9e%e8%a1%a8%e4%b8%ad%e7%9a%84%e6%97%a5%e6%9c%9f%e8%87%aa%e5%8a%a8%e5%8c%96%e7%a8%8b%e5%ba%a6%e9%ab%98" onclick="onNavClick(`#第二种用事实表中的日期自动化程度高-nav`)" id="第二种用事实表中的日期自动化程度高-nav">
+									第二种，用事实表中的日期，自动化程度高
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://zhangjinmin.github.io/">
+            ZhangJM
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://zhangjinmin.github.io/">
+        <div class="single-column-header-title">ZhangJM</div>
+        
+        <div class="single-column-header-subtitle">随遇而安，岁月静好</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    日期表
+                    
+                    <div class="post-meta">
+                        
+
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/dax">DAX</a>
+                                &nbsp;
+                            
+                                <a href="/tags/powerbi">PowerBI</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E6%97%A5%E6%9C%9F%E8%A1%A8">日期表</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="日期表">日期表</h1>
+<p>以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好</p>
+<h2 id="第一种直接指定日期">第一种，直接指定日期</h2>
+<pre tabindex="0"><code>日期表 = ADDCOLUMNS (
+CALENDAR (DATE(2018,1,1), DATE(2019,12,31)),
+&#34;年度&#34;, YEAR ( [Date] ),
+&#34;月份&#34;, FORMAT ( [Date], &#34;MM&#34; ),
+&#34;周&#34;,WEEKNUM([Date],2),
+&#34;年月&#34;, FORMAT ( [Date], &#34;YYYY/MM&#34; ),
+&#34;星期&#34;, WEEKDAY ( [Date],2 ) &amp; &#34;-&#34; &amp; FORMAT ( [Date], &#34;dddd&#34; ),
+&#34;季度&#34;, &#34;Q&#34; &amp; FORMAT ( [Date], &#34;Q&#34; ),
+&#34;年份季度&#34;, FORMAT ( [Date], &#34;YYYY&#34; ) &amp; &#34;/Q&#34; &amp; FORMAT ( [Date], &#34;Q&#34; ))
+</code></pre><h2 id="第二种用事实表中的日期自动化程度高">第二种，用事实表中的日期，自动化程度高</h2>
+<pre tabindex="0"><code>日期表 =
+GENERATE(
+CALENDAR(
+    MIN(&#39;事实表&#39;[日期]),//注意：这里需要替换成你自己的数据
+    MAX(&#39;事实表&#39;[日期])//注意：这里需要替换成你自己的数据
+),
+VAR DA=[Date]
+VAR YEAR=YEAR(DA)
+VAR QUARTER=&#34;季度&#34;&amp;FORMAT(DA,&#34;Q&#34;)
+VAR MONTE=FORMAT(DA,&#34;MM&#34;)&amp;&#34;月&#34;
+VAR DAY=DAY(DA)
+VAR WEEKID=WEEKDAY(DA,2)
+RETURN
+ROW(
+    &#34;年度&#34;,YEAR,
+    &#34;季度&#34;,QUARTER,
+    &#34;月份&#34;,MONTE,
+    &#34;日&#34;,DAY,
+    &#34;年度季度&#34;,YEAR&amp;QUARTER,
+    &#34;年度月份&#34;,YEAR&amp;MONTE,
+    &#34;星期&#34;,WEEKID
+)
+)
+</code></pre>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="https://zhangjinmin.github.io/post/20220315tonghuanbi/">
+			下回<br>各种同比 环比
+                </a>
+                
+                
+                
+                <a class="older-posts" href="https://zhangjinmin.github.io/post/20220315jiaxingxing/">
+			上回<br>评分加相应数量的星星
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script>
+    </body>
+</html>
