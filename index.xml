@@ -13,6 +13,34 @@
     
     
         <item>
+        <title>DAX新建表</title>
+        <link>https://zhangjinmin.github.io/post/daxxinjianbiao/</link>
+        <pubDate>Tue, 15 Mar 2022 02:36:26 +0800</pubDate>
+        
+        <guid>https://zhangjinmin.github.io/post/daxxinjianbiao/</guid>
+        <description>ZhangJM https://zhangjinmin.github.io/post/daxxinjianbiao/ -&lt;h1 id=&#34;dax新建表&#34;&gt;DAX新建表&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Dax.新建表UnitTable = 
+SELECTCOLUMNS(    //选择某张表，按上表头
+    
+//以下是新建表，但没有表头
+    {
+        (&amp;#34;K&amp;#34;,1000),
+        (&amp;#34;w&amp;#34;,10000),
+        (&amp;#34;M&amp;#34;,1000000)
+    },
+//新建表
+
+//按上表头
+    &amp;#34;UnitName&amp;#34;,[Value1],
+    &amp;#34;UnitValue&amp;#34;,[Value2]
+
+)
+&lt;/code&gt;&lt;/pre&gt;- https://zhangjinmin.github.io/post/daxxinjianbiao/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
         <title>Md</title>
         <link>https://zhangjinmin.github.io/post/md/</link>
         <pubDate>Tue, 15 Mar 2022 02:36:26 +0800</pubDate>

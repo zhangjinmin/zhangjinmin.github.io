@@ -9,6 +9,15 @@
     <copyright>This is a customized copyright.</copyright>
     <lastBuildDate>Tue, 15 Mar 2022 02:36:26 +0800</lastBuildDate><atom:link href="https://zhangjinmin.github.io/tags/dax/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>DAX新建表</title>
+      <link>https://zhangjinmin.github.io/post/daxxinjianbiao/</link>
+      <pubDate>Tue, 15 Mar 2022 02:36:26 +0800</pubDate>
+      
+      <guid>https://zhangjinmin.github.io/post/daxxinjianbiao/</guid>
+      <description>DAX新建表 Dax.新建表UnitTable = SELECTCOLUMNS( //选择某张表，按上表头//以下是新建表，但没有表头{(&amp;#34;K&amp;#34;,1000),(&amp;#34;w&amp;#34;,10000),(&amp;#34;M&amp;#34;,1000000)},//新建表//按上表头&amp;#34;UnitName&amp;#34;,[Value1],&amp;#34;UnitValue&amp;#34;,[Value2]) </description>
+    </item>
+    
+    <item>
       <title>测试</title>
       <link>https://zhangjinmin.github.io/post/ceshi/</link>
       <pubDate>Tue, 15 Mar 2022 02:36:26 +0800</pubDate>
