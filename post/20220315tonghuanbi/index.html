@@ -24,8 +24,8 @@
 上周累计 =VAR curyear= SELECTEDVALUE(&#39;日期表&#39;[年度])VAR curweeknum=SELECTEDVALUE(&#39;日期表&#39;[周数])RETURNCALCULATE([销售金额],FILTER(ALL(&#39;日期表&#39;),&#39;日期表&#39;[年度]=curyear&amp;&amp;&#39;日期表&#39;[周数]=curweeknum-1))周环比 = DIVIDE([销售金额],[上周累计])-1 第二种 把整个日期看成是一个整体，即无论多少年，都是不断的周累加，同样第一周会有点问题，但跨年就比较简单了" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zhangjinmin.github.io/post/20220315tonghuanbi/" /><meta property="article:section" content="post" />
-
-<meta property="og:site_name" content="My Blog" />
+<meta property="article:published_time" content="2022-03-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-15T00:00:00+00:00" /><meta property="og:site_name" content="My Blog" />
 
 
 
@@ -713,6 +713,10 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                     
                     <div class="post-meta">
                         
+                        <time itemprop="datePublished">
+                            2022-03-15 00:00
+                        </time>
+                        
 
                         
 
@@ -810,6 +814,9 @@ ALL(&#39;日期表&#39;),
 			)
     )
 </code></pre>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2022-03-15</p>
                     
                 </div>
             </div>
