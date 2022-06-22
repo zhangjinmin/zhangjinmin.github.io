@@ -6,9 +6,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://zhangjinmin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>时隔两个月后的更新</title>
+        <link>https://zhangjinmin.github.io/post/20220622/</link>
+        <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://zhangjinmin.github.io/post/20220622/</guid>
+        <description>ZhangJM https://zhangjinmin.github.io/post/20220622/ -&lt;h1 id=&#34;两个月&#34;&gt;两个月&lt;/h1&gt;
+&lt;p&gt;时隔两个月之后的更新，依然还不能出差，出差其实可以，就是要被隔离7天，所以上海现在被歧视呗，毕竟搞得这么大，可以理解，另外烟火气我是真没看到，都没有堂食，哪里来的烟火气这种东西，至少我知道的都真的是挣扎求存而已！&lt;/p&gt;
+- https://zhangjinmin.github.io/post/20220622/ - This is a customized copyright.</description>
+        </item>
     
     
     
@@ -307,24 +320,6 @@ ROW(
 )
 )
 &lt;/code&gt;&lt;/pre&gt;- https://zhangjinmin.github.io/post/20220315riqibiao/ - This is a customized copyright.</description>
-        </item>
-    
-    
-    
-        <item>
-        <title>评分加相应数量的星星</title>
-        <link>https://zhangjinmin.github.io/post/20220315jiaxingxing/</link>
-        <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://zhangjinmin.github.io/post/20220315jiaxingxing/</guid>
-        <description>ZhangJM https://zhangjinmin.github.io/post/20220315jiaxingxing/ -&lt;h1 id=&#34;评分加相应数量的星星&#34;&gt;评分加相应数量的星星&lt;/h1&gt;
-&lt;p&gt;使用Emoji图像&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;好评 = REPT(&amp;#34;⭐&amp;#34;,AVERAGE(&amp;#39;门店评分&amp;#39;[评分]))
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用uincode代码作为图像&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;好评 = REPT(UNICHAR(9733),AVERAGE(&amp;#39;门店评分&amp;#39;[评分]))
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个是模仿最高分5分，得分四分就是4颗实心星星，1颗空心星星&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;好评 = REPT(UNICHAR(9733),AVERAGE(&amp;#39;门店评分&amp;#39;[评分]))&amp;amp;REPT(UNICHAR(9734),5-AVERAGE(&amp;#39;门店评分&amp;#39;[评分]))
-&lt;/code&gt;&lt;/pre&gt;- https://zhangjinmin.github.io/post/20220315jiaxingxing/ - This is a customized copyright.</description>
         </item>
     
     
