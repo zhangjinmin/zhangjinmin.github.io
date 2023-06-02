@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangjinmin.github.io/tags/powerbi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangjinmin.github.io/tags/powerbi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DAX Studio 导出命令</title>
+      <link>https://zhangjinmin.github.io/post/20230602/</link>
+      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhangjinmin.github.io/post/20230602/</guid>
+      <description>导出表中的全部内容 EVALUATE Sales 按照表中某个字段的条件导出 EVALUATE CALCULATETABLE ( Sales, Sales[日期] &amp;lt;= date(2020,1,1)) 要获取列中所有值的非重复列表 EVALUATE VALUES ( Customer[City] ) 获取所有第一个字符为“R”的城市列表 EVALUATE CALCULATETABLE ( VALUES ( Customer[City] ), LEFT ( Customer[City], 1 ) = &amp;#34;R&amp;#34; ) </description>
+    </item>
+    
+    <item>
+      <title>PowerBI DAX对不完整月的同比</title>
+      <link>https://zhangjinmin.github.io/post/20230602_2/</link>
+      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhangjinmin.github.io/post/20230602_2/</guid>
+      <description>在pbi中如果是当前周期是不完整的月份，则同比会出现不完整的对比同期完整的
+Total Sales LY 2 = VAR MaxDate = EDATE(CALCULATE(MAX(Sales[Date]);ALL(Sales));-12) RETURN CALCULATE( [Total Sales]; FILTER(SAMEPERIODLASTYEAR(&amp;#39;Date&amp;#39;[Date]);&amp;#39;Date&amp;#39;[Date]&amp;lt;=MaxDate) ) </description>
+    </item>
+    
     <item>
       <title>DAX新建表</title>
       <link>https://zhangjinmin.github.io/post/20220315daxxinjianbiao/</link>

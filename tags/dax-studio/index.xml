@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DAX Studio on ZhangJM</title>
+    <link>https://zhangjinmin.github.io/tags/dax-studio/</link>
+    <description>Recent content in DAX Studio on ZhangJM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Fri, 02 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangjinmin.github.io/tags/dax-studio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DAX Studio 导出命令</title>
+      <link>https://zhangjinmin.github.io/post/20230602/</link>
+      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhangjinmin.github.io/post/20230602/</guid>
+      <description>导出表中的全部内容 EVALUATE Sales 按照表中某个字段的条件导出 EVALUATE CALCULATETABLE ( Sales, Sales[日期] &amp;lt;= date(2020,1,1)) 要获取列中所有值的非重复列表 EVALUATE VALUES ( Customer[City] ) 获取所有第一个字符为“R”的城市列表 EVALUATE CALCULATETABLE ( VALUES ( Customer[City] ), LEFT ( Customer[City], 1 ) = &amp;#34;R&amp;#34; ) </description>
+    </item>
+    
+  </channel>
+</rss>

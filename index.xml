@@ -6,9 +6,53 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Thu, 01 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jun 2023 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://zhangjinmin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>DAX Studio 导出命令</title>
+        <link>https://zhangjinmin.github.io/post/20230602/</link>
+        <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://zhangjinmin.github.io/post/20230602/</guid>
+        <description>ZhangJM https://zhangjinmin.github.io/post/20230602/ -&lt;h2 id=&#34;导出表中的全部内容&#34;&gt;导出表中的全部内容&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-text-plain&#34; data-lang=&#34;text-plain&#34;&gt;EVALUATE Sales
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;按照表中某个字段的条件导出&#34;&gt;按照表中某个字段的条件导出&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-text-plain&#34; data-lang=&#34;text-plain&#34;&gt;EVALUATE
+CALCULATETABLE ( Sales, Sales[日期] &amp;lt;= date(2020,1,1))
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;要获取列中所有值的非重复列表&#34;&gt;要获取列中所有值的非重复列表&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-text-plain&#34; data-lang=&#34;text-plain&#34;&gt;EVALUATE
+VALUES ( Customer[City] )
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;获取所有第一个字符为r的城市列表&#34;&gt;获取所有第一个字符为“R”的城市列表&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-text-plain&#34; data-lang=&#34;text-plain&#34;&gt;EVALUATE
+CALCULATETABLE ( VALUES ( Customer[City] ), LEFT ( Customer[City], 1 ) = &amp;#34;R&amp;#34; )
+&lt;/code&gt;&lt;/pre&gt;- https://zhangjinmin.github.io/post/20230602/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>PowerBI DAX对不完整月的同比</title>
+        <link>https://zhangjinmin.github.io/post/20230602_2/</link>
+        <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://zhangjinmin.github.io/post/20230602_2/</guid>
+        <description>ZhangJM https://zhangjinmin.github.io/post/20230602_2/ -&lt;p&gt;在pbi中如果是当前周期是不完整的月份，则同比会出现不完整的对比同期完整的&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-text-plain&#34; data-lang=&#34;text-plain&#34;&gt;Total Sales LY 2 =
+
+VAR MaxDate = EDATE(CALCULATE(MAX(Sales[Date]);ALL(Sales));-12)
+
+RETURN
+
+CALCULATE(
+	[Total Sales];
+	FILTER(SAMEPERIODLASTYEAR(&amp;#39;Date&amp;#39;[Date]);&amp;#39;Date&amp;#39;[Date]&amp;lt;=MaxDate)
+)
+&lt;/code&gt;&lt;/pre&gt;- https://zhangjinmin.github.io/post/20230602_2/ - This is a customized copyright.</description>
+        </item>
     
     
     
@@ -22,7 +66,6 @@
 &lt;ul&gt;
 &lt;li&gt;总理人选：可能是现年59岁的副总理胡春华或现年67岁的中共政治协商会议主席汪洋（汪洋显然是两人中资历更高的那位，所以概率要大得多）&lt;/li&gt;
 &lt;li&gt;连任没有太大的悬念&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 - https://zhangjinmin.github.io/post/20220901/ - This is a customized copyright.</description>
         </item>
@@ -177,119 +220,6 @@ VAR UserResult=
 	）
 RETURN UserResult
 &lt;/code&gt;&lt;/pre&gt;- https://zhangjinmin.github.io/post/20220315bendituxiang/ - This is a customized copyright.</description>
-        </item>
-    
-    
-    
-        <item>
-        <title>各种同比 环比</title>
-        <link>https://zhangjinmin.github.io/post/20220315switchdax/</link>
-        <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://zhangjinmin.github.io/post/20220315switchdax/</guid>
-        <description>ZhangJM https://zhangjinmin.github.io/post/20220315switchdax/ -&lt;h1 id=&#34;本地图像的使用&#34;&gt;本地图像的使用&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;图像先导入数据源&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;直接导入并编辑&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;保留Content列&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;添加自定义列&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;输入公式：&amp;ldquo;data:image/jpeg;base64,&amp;quot;&amp;amp;Binary.ToText([Content])&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;该列就成为了图像URL了，到时候直接当图片用就可以了&lt;/p&gt;
-&lt;p&gt;仅适用于小图像，一般都是几十KB这样子，太大的会被裁剪，毕竟不用加载网络图片了&lt;/p&gt;
-- https://zhangjinmin.github.io/post/20220315switchdax/ - This is a customized copyright.</description>
-        </item>
-    
-    
-    
-        <item>
-        <title>各种同比 环比</title>
-        <link>https://zhangjinmin.github.io/post/20220315tonghuanbi/</link>
-        <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://zhangjinmin.github.io/post/20220315tonghuanbi/</guid>
-        <description>ZhangJM https://zhangjinmin.github.io/post/20220315tonghuanbi/ -&lt;h1 id=&#34;momytd&#34;&gt;MOM、YTD&lt;/h1&gt;
-&lt;h2 id=&#34;去年同期&#34;&gt;去年同期&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;去年同期=CALCULATE([销售金额],SAMEPERIODLASTYEAR(&amp;#39;日期表&amp;#39;[Date]))
-&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;去年同期=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,YEAR))
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;月环比&#34;&gt;月环比&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;月环比=CALCULATE([销售金额],DATEADD(&amp;#39;日期表&amp;#39;[Date],-1,MONTH))
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;ytd年度累计&#34;&gt;YTD年度累计&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;YTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date])
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;ytd计算逻辑&#34;&gt;YTD计算逻辑&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;YTD = 
-CALCULATE(
-[销售金额],
-FILTER(
-ALL(&amp;#39;日期表&amp;#39;[Date]),
-&amp;#39;日期表&amp;#39;[Date]&amp;lt;=MAX(&amp;#39;日期表&amp;#39;[Date]) &amp;amp;&amp;amp; YEAR(&amp;#39;日期表&amp;#39;[Date])=YEAR(MAX(&amp;#39;日期表&amp;#39;[Date]))
-)
-)
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;从指定日期开始年度累计举例为从4月开始累计&#34;&gt;从指定日期开始年度累计，举例为从4月开始累计&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;FYTD = TOTALYTD([销售金额],&amp;#39;日期表&amp;#39;[Date],&amp;#34;3-31&amp;#34;)
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;wtd周累计至今&#34;&gt;WTD周累计至今&lt;/h2&gt;
-&lt;p&gt;就是周数相同的，小于等于当天的这几日的数据&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;本周至今WTD =
-VAR curyearweek=SELECTEDVALUE(&amp;#39;日期表&amp;#39;[年度周数])
-RETURN
-CALCULATE(
-[销售金额],
-FILTER(
-ALL(&amp;#39;日期表&amp;#39;),
-&amp;#39;日期表&amp;#39;[年度周数]=curyearweek
-&amp;amp;&amp;amp;&amp;#39;日期表&amp;#39;[日期]&amp;lt;=MAX(&amp;#39;日期表&amp;#39;[日期])
-)
-)
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;上周同期&#34;&gt;上周同期&lt;/h2&gt;
-&lt;p&gt;用于天维度的上周同比，用周维度会有问题&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;上周同期 销售额 =
-CALCULATE(
-[销售金额],
-DATEADD(&amp;#39;日期表&amp;#39;[日期],-7,DAY)
-)
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;周环比&#34;&gt;周环比&lt;/h2&gt;
-&lt;h3 id=&#34;第一种&#34;&gt;第一种&lt;/h3&gt;
-&lt;p&gt;第一周，会出现一些问题，主要是由于第一周没有上期数据，并且第一周的天数很可能不完整&lt;/p&gt;
-&lt;p&gt;实际上就是本周数据和上周数据的对比，只要计算出上周累计的数据，周环比也就可以简单的计算出来了。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;上周累计 =
-VAR curyear= SELECTEDVALUE(&amp;#39;日期表&amp;#39;[年度])
-VAR curweeknum=SELECTEDVALUE(&amp;#39;日期表&amp;#39;[周数])
-RETURN
-CALCULATE(
-[销售金额],
-FILTER(
-ALL(&amp;#39;日期表&amp;#39;),
-&amp;#39;日期表&amp;#39;[年度]=curyear
-&amp;amp;&amp;amp;&amp;#39;日期表&amp;#39;[周数]=curweeknum-1
-)
-)
-
-
-周环比 = DIVIDE([销售金额],[上周累计])-1
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;第二种&#34;&gt;第二种&lt;/h3&gt;
-&lt;p&gt;把整个日期看成是一个整体，即无论多少年，都是不断的周累加，同样第一周会有点问题，但跨年就比较简单了&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/476790194/answer/2035649720%C2%A0&#34;&gt;参考这个&lt;/a&gt;&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ADDCOLUMNS(
-        date_table_base , 
-        &amp;#34;WeekNumerInYear&amp;#34; , WEEKNUM( [Date] , 2 ) ,//年周，周一为第一天
-        &amp;#34;WeekNumberGlobal&amp;#34; , 
-        	DATEDIFF( 
-				MINX( FILTER( date_table_base , [DayNumberInWeek] = 1 ) , [Date] ) , 
-				[Date] - 1 , 
-				WEEK 
-			)
-    )
-&lt;/code&gt;&lt;/pre&gt;- https://zhangjinmin.github.io/post/20220315tonghuanbi/ - This is a customized copyright.</description>
         </item>
     
     

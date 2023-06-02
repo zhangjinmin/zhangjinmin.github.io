@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-<title>二十预测</title>
+<title>PowerBI DAX对不完整月的同比</title>
 
 
 
@@ -16,12 +16,13 @@
 
 
 
-<meta property="og:title" content="二十预测" />
-<meta property="og:description" content="预测  总理人选：可能是现年59岁的副总理胡春华或现年67岁的中共政治协商会议主席汪洋（汪洋显然是两人中资历更高的那位，所以概率要大得多） 连任没有太大的悬念  " />
+<meta property="og:title" content="PowerBI DAX对不完整月的同比" />
+<meta property="og:description" content="在pbi中如果是当前周期是不完整的月份，则同比会出现不完整的对比同期完整的
+Total Sales LY 2 = VAR MaxDate = EDATE(CALCULATE(MAX(Sales[Date]);ALL(Sales));-12) RETURN CALCULATE( [Total Sales]; FILTER(SAMEPERIODLASTYEAR(&#39;Date&#39;[Date]);&#39;Date&#39;[Date]&lt;=MaxDate) ) " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zhangjinmin.github.io/post/20220901/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-09-01T00:00:00+00:00" /><meta property="og:site_name" content="My Blog" />
+<meta property="og:url" content="https://zhangjinmin.github.io/post/20230602_2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-02T00:00:00+00:00" /><meta property="og:site_name" content="My Blog" />
 
 
 
@@ -148,37 +149,6 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
     <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
 
 
-	<div class="toc-content">
-	
-		
-		
-		
-		<center>- 目录 -</center>
-		
-		
-		<ul>
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#%e9%a2%84%e6%b5%8b" onclick="onNavClick(`#预测-nav`)" id="预测-nav">
-									预测
-								</a>
-							</li>
-						
-						
-					
-				
-			
-		</ul>
-	</div>
-
 </div>
     
     <div class="pagination">
@@ -238,37 +208,6 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
             <div class="toc">
 
 
-	<div class="toc-content">
-	
-		
-		
-		
-		<center>- 目录 -</center>
-		
-		
-		<ul>
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#%e9%a2%84%e6%b5%8b" onclick="onNavClick(`#预测-nav`)" id="预测-nav">
-									预测
-								</a>
-							</li>
-						
-						
-					
-				
-			
-		</ul>
-	</div>
-
 </div>
             
         </div>
@@ -321,12 +260,12 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                 
             >
                 <div class="post-title">
-                    二十预测
+                    PowerBI DAX对不完整月的同比
                     
                     <div class="post-meta">
                         
                         <time itemprop="datePublished">
-                            2022-09-01 00:00
+                            2023-06-02 00:00
                         </time>
                         
 
@@ -335,7 +274,10 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                         
                             <i class="material-icons" style="">label</i>
                             
-                                <a href="/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99">随便写写</a>
+                                <a href="/tags/dax">DAX</a>
+                                &nbsp;
+                            
+                                <a href="/tags/powerbi">PowerBI</a>
                                 &nbsp;
                             
                         
@@ -348,15 +290,21 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                 
                 <div class="post-body" v-pre>
                 
-                    <h1 id="预测">预测</h1>
-<ul>
-<li>总理人选：可能是现年59岁的副总理胡春华或现年67岁的中共政治协商会议主席汪洋（汪洋显然是两人中资历更高的那位，所以概率要大得多）</li>
-<li>连任没有太大的悬念</li>
-</ul>
+                    <p>在pbi中如果是当前周期是不完整的月份，则同比会出现不完整的对比同期完整的</p>
+<pre tabindex="0"><code class="language-text-plain" data-lang="text-plain">Total Sales LY 2 =
 
+VAR MaxDate = EDATE(CALCULATE(MAX(Sales[Date]);ALL(Sales));-12)
+
+RETURN
+
+CALCULATE(
+	[Total Sales];
+	FILTER(SAMEPERIODLASTYEAR(&#39;Date&#39;[Date]);&#39;Date&#39;[Date]&lt;=MaxDate)
+)
+</code></pre>
                     
                     <HR width="100%" id="EOF">
-		    <p style="color:#777;">最后修改于 2022-09-01</p>
+		    <p style="color:#777;">最后修改于 2023-06-02</p>
                     
                 </div>
             </div>
@@ -365,14 +313,14 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts" href="https://zhangjinmin.github.io/post/20230602_2/">
-			下回<br>PowerBI DAX对不完整月的同比
+                <a class="newer-posts" href="https://zhangjinmin.github.io/post/20230602/">
+			下回<br>DAX Studio 导出命令
                 </a>
                 
                 
                 
-                <a class="older-posts" href="https://zhangjinmin.github.io/post/20220622/">
-			上回<br>时隔两个月后的更新
+                <a class="older-posts" href="https://zhangjinmin.github.io/post/20220901/">
+			上回<br>二十预测
                 </a>
                 
             </nav>
