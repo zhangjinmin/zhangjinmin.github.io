@@ -10,21 +10,6 @@
     <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangjinmin.github.io/tags/%E5%90%8C%E7%8E%AF%E6%AF%94/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>各种同比 环比</title>
-      <link>https://zhangjinmin.github.io/post/20220315switchdax/</link>
-      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://zhangjinmin.github.io/post/20220315switchdax/</guid>
-      <description>本地图像的使用   图像先导入数据源
-  直接导入并编辑
-  保留Content列
-  添加自定义列
-  输入公式：&amp;ldquo;data:image/jpeg;base64,&amp;quot;&amp;amp;Binary.ToText([Content])
-  该列就成为了图像URL了，到时候直接当图片用就可以了
-仅适用于小图像，一般都是几十KB这样子，太大的会被裁剪，毕竟不用加载网络图片了</description>
-    </item>
-    
-    <item>
-      <title>各种同比 环比</title>
       <link>https://zhangjinmin.github.io/post/20220315tonghuanbi/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       

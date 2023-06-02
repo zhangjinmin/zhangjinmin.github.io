@@ -47,21 +47,6 @@ Total Sales LY 2 = VAR MaxDate = EDATE(CALCULATE(MAX(Sales[Date]);ALL(Sales));-1
     
     <item>
       <title>各种同比 环比</title>
-      <link>https://zhangjinmin.github.io/post/20220315switchdax/</link>
-      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://zhangjinmin.github.io/post/20220315switchdax/</guid>
-      <description>本地图像的使用   图像先导入数据源
-  直接导入并编辑
-  保留Content列
-  添加自定义列
-  输入公式：&amp;ldquo;data:image/jpeg;base64,&amp;quot;&amp;amp;Binary.ToText([Content])
-  该列就成为了图像URL了，到时候直接当图片用就可以了
-仅适用于小图像，一般都是几十KB这样子，太大的会被裁剪，毕竟不用加载网络图片了</description>
-    </item>
-    
-    <item>
-      <title>各种同比 环比</title>
       <link>https://zhangjinmin.github.io/post/20220315tonghuanbi/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
@@ -81,6 +66,21 @@ Total Sales LY 2 = VAR MaxDate = EDATE(CALCULATE(MAX(Sales[Date]);ALL(Sales));-1
       <guid>https://zhangjinmin.github.io/post/20220315riqibiao/</guid>
       <description>日期表 以下生成表格挑个就好，内容再照着抄抄改成自己希望的格式，但其实由于实际情况的多变，很多情况下用excel自己做一张日期表似乎更好
 第一种，直接指定日期 日期表 = ADDCOLUMNS (CALENDAR (DATE(2018,1,1), DATE(2019,12,31)),&amp;#34;年度&amp;#34;, YEAR ( [Date] ),&amp;#34;月份&amp;#34;, FORMAT ( [Date], &amp;#34;MM&amp;#34; ),&amp;#34;周&amp;#34;,WEEKNUM([Date],2),&amp;#34;年月&amp;#34;, FORMAT ( [Date], &amp;#34;YYYY/MM&amp;#34; ),&amp;#34;星期&amp;#34;, WEEKDAY ( [Date],2 ) &amp;amp; &amp;#34;-&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;dddd&amp;#34; ),&amp;#34;季度&amp;#34;, &amp;#34;Q&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;Q&amp;#34; ),&amp;#34;年份季度&amp;#34;, FORMAT ( [Date], &amp;#34;YYYY&amp;#34; ) &amp;amp; &amp;#34;/Q&amp;#34; &amp;amp; FORMAT ( [Date], &amp;#34;Q&amp;#34; )) 第二种，用事实表中的日期，自动化程度高 日期表 =GENERATE(CALENDAR(MIN(&amp;#39;事实表&amp;#39;[日期]),//注意：这里需要替换成你自己的数据MAX(&amp;#39;事实表&amp;#39;[日期])//注意：这里需要替换成你自己的数据),VAR DA=[Date]VAR YEAR=YEAR(DA)VAR QUARTER=&amp;#34;季度&amp;#34;&amp;amp;FORMAT(DA,&amp;#34;Q&amp;#34;)VAR MONTE=FORMAT(DA,&amp;#34;MM&amp;#34;)&amp;amp;&amp;#34;月&amp;#34;VAR DAY=DAY(DA)VAR WEEKID=WEEKDAY(DA,2)RETURNROW(&amp;#34;年度&amp;#34;,YEAR,&amp;#34;季度&amp;#34;,QUARTER,&amp;#34;月份&amp;#34;,MONTE,&amp;#34;日&amp;#34;,DAY,&amp;#34;年度季度&amp;#34;,YEAR&amp;amp;QUARTER,&amp;#34;年度月份&amp;#34;,YEAR&amp;amp;MONTE,&amp;#34;星期&amp;#34;,WEEKID)) </description>
+    </item>
+    
+    <item>
+      <title>本地图像的使用</title>
+      <link>https://zhangjinmin.github.io/post/20220315switchdax/</link>
+      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhangjinmin.github.io/post/20220315switchdax/</guid>
+      <description>本地图像的使用   图像先导入数据源
+  直接导入并编辑
+  保留Content列
+  添加自定义列
+  输入公式：&amp;ldquo;data:image/jpeg;base64,&amp;quot;&amp;amp;Binary.ToText([Content])
+  该列就成为了图像URL了，到时候直接当图片用就可以了
+仅适用于小图像，一般都是几十KB这样子，太大的会被裁剪，毕竟不用加载网络图片了</description>
     </item>
     
     <item>
